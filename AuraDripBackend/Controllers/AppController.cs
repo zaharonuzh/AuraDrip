@@ -1,0 +1,119 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using AuraDripBackend.Data;   
+using AuraDripBackend.Models;
+
+namespace AuraDripBackend.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]// /api/app
+    public class AppController : ControllerBase
+    {
+        private readonly AppDbContext _context;
+
+        public AppController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet("plants/{plantId}/status")]
+        public async Task<IActionResult> GetStatus(int plantId)
+        {
+            var plant = await _context.Plants.FindAsync(plantId);
+
+            if (plant == null) {
+                return NotFound(new { message = "Plant not found" });
+            }
+
+            var LastTelemetry = await _context.Telemetries.Where(t => t.PlantId == plantId).OrderByDescending(t => t.Timestamp).FirstOrDefaultAsync();
+
+            return Ok(new
+            {
+                AgeDays= (DateTime.UtcNow - plant.DatePlanted).Days,
+                CurrentMoisture = LastTelemetry?.SoilMoisture ?? 0,
+                CurrentTemp = LastTelemetry?.AirTemperature ?? 0,
+                LastUpdate = LastTelemetry?.Timestamp
+            });
+        }
+
+        [HttpPatch("plants/{plantId}/config")] // /api/app/plants/{plantId}/config
+        public async Task<IActionResult> UpdateConfig(int plantId, [FromBody] UpdateConfigDto config)
+        {
+            // Знайходимо рослину в базі 
+            var plant = await _context.Plants.FindAsync(plantId);
+
+            if (plant == null)
+            {
+                return NotFound(new { message = "Plant not found" });
+            }
+            // Оновлюємо режим (Авто/Ручний/Фікс. поріг)
+            plant.ControlMode = config.ControlMode;
+            // Якщо користувач вибрав 3-й режим(Фікс. поріг):
+            if (config.ControlMode == 3 && config.ManualThreshold.HasValue)
+            {
+                plant.MinMoistureThreshold = config.ManualThreshold.Value;
+            }
+
+            // Зберегаємо зміни в базі 
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                message = "Settings updated",
+                mode = plant.ControlMode,
+                threshold = plant.MinMoistureThreshold
+            });
+        }
+
+        [HttpPost("plants/{plantId}/force-water")]// /api/app/plants/{plantId}/force-water
+        public async Task<IActionResult> ForceWater(int plantId)
+        {
+
+            var plant = await _context.Plants.FindAsync(plantId);
+
+            if (plant == null)
+            {
+                return NotFound(new { message = "Plant not found" });
+            }
+
+            // Поклав "записку" в поштову скриньку(полити при нагоді)
+            plant.HasPendingWaterCommand = true;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "The forced irrigation command has been successfully added to the queue!" });
+        }
+
+        [HttpGet("plants/{plantId}/statistics")]// /api/app/plants/{plantId}/statistics
+        public async Task<IActionResult> GetStatistics(int plantId, [FromQuery] int days = 14)
+        {
+            // 1. Визначаємо дату початку (віднімаємо потрібну кількість днів від "зараз")
+            var startDate = DateTime.UtcNow.AddDays(-days);
+
+            // 2. Дістаємо всі записи для цієї рослини, які новіші за startDate
+            // Використовуємо ToListAsync(), бо нам потрібні всі записи за період!
+            var data = await _context.Telemetries
+                .Where(t => t.PlantId == plantId && t.Timestamp >= startDate)
+                .ToListAsync();
+
+            // Перевірка: якщо за цей період ще немає жодних записів
+            if (!data.Any())
+            {
+                return Ok(new { message = "No data"});
+            }
+
+            // 3.Використав LINQ, щоб порахувати середнє значення для SoilMoisture та AirTemperature.
+            var avgMoisture = data.Average(t => t.SoilMoisture); 
+            var avgTemp = data.Average(t => t.AirTemperature);
+
+            // Повертаємо звіт
+            return Ok(new
+            {
+                PeriodDays = days,
+                TotalRecords = data.Count, // Покажемо, скільки разів ESP виходила на зв'язок
+                AverageMoisture = Math.Round(avgMoisture, 1), // Округлюємо до 1 знака після коми
+                AverageTemperature = Math.Round(avgTemp, 1)
+            });
+        }
+    }
+}

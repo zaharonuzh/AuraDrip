@@ -1,0 +1,20 @@
+[
+  {
+    "SpeciesName": "Еуфорбія (Молочай)",
+    "Description": "Невибагливий сукулент. Любить багато світла і дуже рідкий полив.",
+    "DefaultMoistureThreshold": 20,
+    "ImageUrl": "euphorbia.png"
+  },
+  {
+    "SpeciesName": "Кактус",
+    "Description": "Пустельний житель. Поливати тільки коли ґрунт повністю висохне.",
+    "DefaultMoistureThreshold": 10,
+    "ImageUrl": "cactus.png"
+  },
+  {
+    "SpeciesName": "Фікус Бенджаміна",
+    "Description": "Тропічна рослина. Потребує постійної вологості та обприскування.",
+    "DefaultMoistureThreshold": 45,
+    "ImageUrl": "ficus.png"
+  }
+]
