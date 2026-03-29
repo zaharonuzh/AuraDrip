@@ -1,0 +1,11 @@
+{
+  "name": "auradrip-backend",
+  "version": "1.0.0",
+  "description": "Автоматизація збірки для бекенду AuraDrip",
+  "scripts": {
+    "dev": "dotnet watch run",
+    "build": "dotnet publish -c Release -o ./dist",
+    "preview": "dotnet ./dist/AuraDripBackend.dll",
+    "lint": "dotnet format"
+  }
+}
