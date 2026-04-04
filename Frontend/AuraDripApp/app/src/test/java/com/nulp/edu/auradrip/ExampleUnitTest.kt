@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.nulp.edu.auradrip
 
 import org.junit.Test
 
