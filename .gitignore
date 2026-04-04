@@ -361,3 +361,14 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# --- Мої кастомні правила для Лабораторної 3/4 Максима ---
+
+# Ігнорування артефактів збірки (аналог node_modules та dist)
+/dist/
+
+# Звіти про покриття тестами
+Backend/coveragereport/
+
+# Ігнорування локальних налаштувань середовища
+appsettings.Development.json

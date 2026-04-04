@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using AuraDripBackend.Data;
+﻿using AuraDripBackend.Data;
 using AuraDripBackend.Models;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuraDripBackend.Controllers
 {
-    [ApiController] 
+    [ApiController]
     [Route("api/[controller]")] // /api/plants
-    public class PlantsController : ControllerBase 
+    public class PlantsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
@@ -16,7 +17,7 @@ namespace AuraDripBackend.Controllers
             _context = context;
         }
 
-        [HttpPost] 
+        [HttpPost]
         public async Task<IActionResult> AddPlant([FromBody] Plant newPlant)
         {
             _context.Add(newPlant);
