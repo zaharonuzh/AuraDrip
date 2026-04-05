@@ -1,4 +1,4 @@
-[![.NET CI/CD Pipeline](https://github.com/Maksosik/AuraDrip/actions/workflows/ci-cd.yml/badge.svg?branch=back-develop)](https://github.com/Maksosik/AuraDrip/actions/workflows/ci-cd.yml)
+[![.NET CI/CD Pipeline](https://github.com/Maksosik/AuraDrip/actions/workflows/ci-cd.yml/badge.svg?branch=main)](https://github.com/Maksosik/AuraDrip/actions/workflows/ci-cd.yml)
 
 Тут будуть всі наші файли щодо проєкту AuraDrip.
 Разом виконуємо і кидаємо все сюди:
