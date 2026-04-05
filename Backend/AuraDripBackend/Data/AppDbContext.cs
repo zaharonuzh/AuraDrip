@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AuraDripBackend.Models;
+﻿using AuraDripBackend.Models;
 
-namespace AuraDripBackend.Data 
+using Microsoft.EntityFrameworkCore;
+
+namespace AuraDripBackend.Data
 {
     public class AppDbContext : DbContext
     {

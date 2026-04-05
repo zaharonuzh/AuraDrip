@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using AuraDripBackend.Data;   
+﻿using AuraDripBackend.Data;
 using AuraDripBackend.Models;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuraDripBackend.Controllers
 {
@@ -21,7 +22,8 @@ namespace AuraDripBackend.Controllers
         {
             var plant = await _context.Plants.FindAsync(plantId);
 
-            if (plant == null) {
+            if (plant == null)
+            {
                 return NotFound(new { message = "Plant not found" });
             }
 
@@ -29,7 +31,7 @@ namespace AuraDripBackend.Controllers
 
             return Ok(new
             {
-                AgeDays= (DateTime.UtcNow - plant.DatePlanted).Days,
+                AgeDays = (DateTime.UtcNow - plant.DatePlanted).Days,
                 CurrentMoisture = LastTelemetry?.SoilMoisture ?? 0,
                 CurrentTemp = LastTelemetry?.AirTemperature ?? 0,
                 LastUpdate = LastTelemetry?.Timestamp
@@ -99,11 +101,11 @@ namespace AuraDripBackend.Controllers
             // Перевірка: якщо за цей період ще немає жодних записів
             if (!data.Any())
             {
-                return Ok(new { message = "No data"});
+                return Ok(new { message = "No data" });
             }
 
             // 3.Використав LINQ, щоб порахувати середнє значення для SoilMoisture та AirTemperature.
-            var avgMoisture = data.Average(t => t.SoilMoisture); 
+            var avgMoisture = data.Average(t => t.SoilMoisture);
             var avgTemp = data.Average(t => t.AirTemperature);
 
             // Повертаємо звіт
@@ -114,6 +116,14 @@ namespace AuraDripBackend.Controllers
                 AverageMoisture = Math.Round(avgMoisture, 1), // Округлюємо до 1 знака після коми
                 AverageTemperature = Math.Round(avgTemp, 1)
             });
+        }
+        //контролер для перевірки статусу проекту
+        [HttpGet("env-status")]
+        public IActionResult GetEnvironmentStatus([FromServices] IConfiguration config)
+        {
+            // Читаємо нашу змінну з appsettings
+            var currentStatus = config["AppStatus"];
+            return Ok(new { environment = currentStatus });
         }
     }
 }

@@ -1,0 +1,82 @@
+name: .NET CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  # ЕТАП 1: ЗБІРКА (Build)
+  build:
+    name: Build .NET
+    runs-on: ubuntu-latest
+    
+    # ВКАЗУЄМО, ЩО ВСІ КОМАНДИ ТРЕБА РОБИТИ В ПАПЦІ Backend
+    defaults:
+      run:
+        working-directory: ./Backend
+    
+    steps:
+    # Крок 1: Завантаження мого коду на віртуальну машину GitHub 
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Крок 2: Налаштування оточення
+    # Різниця: Замість actions/setup-node я використовав setup-dotnet. 
+    # Це встановлює компілятор C# на віртуальну машину.
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' 
+
+    # Крок 3: Встановлення залежностей
+    # Різниця: Замість npm ci (який качає бібліотеки з package.json), 
+    # я використовую dotnet restore (який качає NuGet-пакети, такі як Entity Framework).
+    - name: Restore dependencies
+      run: dotnet restore
+
+    # Крок 4: Збірка проєкту
+    # Різниця: Замість npm run build, я використовую dotnet build.
+    # Прапорець --no-restore економить час, бо я вже завантажив залежності на попередньому кроці.
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+
+  # ЕТАП 2: ТЕСТУВАННЯ (Test)
+  test:
+    name: 2. Test Stage
+    runs-on: ubuntu-latest
+    needs: build # <--- Етап 2 чекає на успішне завершення Етапу 1!
+
+    # ТУТ ТАКОЖ ВКАЗУЄМО ПАПКУ Backend, щоб GitHub бачив тести
+    defaults:
+      run:
+        working-directory: ./Backend
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' 
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    # Запускаємо мої тести (AuraDrip.Tests)
+    - name: Run Unit Tests
+      run: dotnet test --no-restore --verbosity normal --configuration Release
+
+  # ЕТАП 3: РОЗГОРТАННЯ (Deploy)
+  deploy:
+    name: 3. Deploy Stage
+    runs-on: ubuntu-latest
+    needs: test # <--- Етап 3 чекає на успішне завершення Етапу 2!
+
+    steps:
+    - name: Trigger Render.com Deployment
+      run: |
+        echo "Етап Тестування пройдено успішно!"
+        echo "Починається автоматичне розгортання на Render.com..."

@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using AuraDripBackend.Data;
+﻿using AuraDripBackend.Data;
 using AuraDripBackend.Models;
+
+using Microsoft.AspNetCore.Mvc;
 
 namespace AuraDripBackend.Controllers
 {

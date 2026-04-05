@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using AuraDripBackend.Data;
+
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,21 +32,20 @@ app.MapControllers();
 // --- Ѕлок автоматичного завантаженн€ JSON в базу ---
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<AuraDripBackend.Data.AppDbContext>(); 
+    var context = scope.ServiceProvider.GetRequiredService<AuraDripBackend.Data.AppDbContext>();
 
-    // ѕерев≥р€Їмо, чи таблиц€ порожн€
-    if (!context.PlantCatalogs.Any())
+    // 1. ‘ормуЇмо шл€х до файлу
+    var basePath = AppContext.BaseDirectory;
+    var filePath = Path.Combine(basePath, "Data", "plantscatalog.json");
+
+    // 2. якщо файл Ї ≥ база порожн€ - завантажуЇмо
+    if (File.Exists(filePath) && !context.PlantCatalogs.Any())
     {
-        // 1. „итаЇмо текст з файлу
-        var jsonText = System.IO.File.ReadAllText("Data/plantscatalog.json");
-
-        // 2. ѕеретворюЇмо JSON-текст на список об'Їкт≥в C#
+        var jsonText = File.ReadAllText(filePath);
         var options = new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         var plantsFromJson = System.Text.Json.JsonSerializer.Deserialize<List<AuraDripBackend.Models.PlantCatalog>>(jsonText, options);
 
-        // 3. якщо усп≥шно прочитали - збер≥гаЇмо в базу
-        if (plantsFromJson != null)
+        if (plantsFromJson != null && plantsFromJson.Any())
         {
             context.PlantCatalogs.AddRange(plantsFromJson);
             context.SaveChanges();
@@ -55,3 +55,6 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
+public partial class Program { }
+//до невидимого класу Program, €кий комп≥л€тор сам створив, просимо додати статус public (публ≥чний),
+//щоб моњ тести з сус≥днього проЇкту могли його бачити ≥ запускати
