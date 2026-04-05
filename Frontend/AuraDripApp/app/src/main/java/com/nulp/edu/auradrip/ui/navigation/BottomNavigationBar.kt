@@ -6,12 +6,14 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
+    val context = LocalContext.current
     val items = listOf(
         BottomNavItem.Dashboard,
         BottomNavItem.Analytics,
@@ -23,9 +25,10 @@ fun BottomNavigationBar(navController: NavController) {
         val currentRoute = navBackStackEntry?.destination?.route
 
         items.forEach { item ->
+            val titleText = context.getString(item.titleResId)
             NavigationBarItem(
-                icon = { Icon(item.icon, contentDescription = item.title) },
-                label = { Text(text = item.title) },
+                icon = { Icon(item.icon, contentDescription = titleText) },
+                label = { Text(text = titleText) },
                 selected = currentRoute == item.route,
                 onClick = {
                     navController.navigate(item.route) {
