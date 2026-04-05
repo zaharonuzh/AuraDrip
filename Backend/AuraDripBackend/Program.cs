@@ -34,6 +34,8 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AuraDripBackend.Data.AppDbContext>();
 
+    context.Database.Migrate();
+
     // 1. Формуємо шлях до файлу
     var basePath = AppContext.BaseDirectory;
     var filePath = Path.Combine(basePath, "Data", "plantscatalog.json");
