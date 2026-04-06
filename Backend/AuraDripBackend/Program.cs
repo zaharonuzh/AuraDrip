@@ -56,6 +56,11 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+// Тестове посилання (без контролера!), щоб глянути, чи завантажились рослини в базу
+app.MapGet("/api/check-catalog", (AuraDripBackend.Data.AppDbContext db) => {
+    return db.PlantCatalogs.ToList();
+});
+
 app.Run();
 public partial class Program { }
 //до невидимого класу Program, який компілятор сам створив, просимо додати статус public (публічний),
