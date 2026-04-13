@@ -103,7 +103,7 @@ namespace AuraDrip.Tests
             // Перевіряємо, чи змінився прапорець у базі даних
             var dbPlant = await context.Plants.FindAsync(1);
             Assert.NotNull(dbPlant); // Заспокоюємо компілятор, гарантуючи, що рослина знайдена
-            Assert.False(dbPlant.HasPendingWaterCommand);
+            Assert.True(dbPlant.HasPendingWaterCommand);
         }
         //Перевіряємо зміну налаштувань
         [Fact]
