@@ -3,6 +3,8 @@ using AuraDripBackend.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
+using PostHog;
+
 namespace AuraDripBackend.Controllers
 {
     [ApiController]
@@ -10,10 +12,12 @@ namespace AuraDripBackend.Controllers
     public class DeviceController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IPostHogClient _posthog;
 
-        public DeviceController(AppDbContext context)
+        public DeviceController(AppDbContext context, IPostHogClient posthog)
         {
             _context = context;
+            _posthog = posthog;
         }
 
         [HttpPost("sync")] // /api/device/sync
@@ -38,6 +42,14 @@ namespace AuraDripBackend.Controllers
 
             // 4. Зберігаємо в базу і нову телеметрію, і очищену скриньку!
             await _context.SaveChangesAsync();
+
+            // Відправляємо дані від пристрою в аналітику
+            _posthog.Capture("esp32_device", "telemetry_received", new Dictionary<string, object>
+            {
+                { "plant_id", plant.Id },
+                { "soil_moisture", data.SoilMoisture },
+                { "did_force_water", shouldWaterNow } // Записуємо, чи полила помпа квітку прямо зараз
+            });
 
             return Ok(new
             {

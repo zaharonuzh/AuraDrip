@@ -4,6 +4,8 @@ using AuraDripBackend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+using PostHog;
+
 namespace AuraDripBackend.Controllers
 {
     [ApiController]
@@ -11,10 +13,12 @@ namespace AuraDripBackend.Controllers
     public class AppController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IPostHogClient _posthog;
 
-        public AppController(AppDbContext context)
+        public AppController(AppDbContext context, IPostHogClient posthog)
         {
             _context = context;
+            _posthog = posthog;
         }
 
         [HttpGet("plants/{plantId}/status")]
@@ -59,6 +63,14 @@ namespace AuraDripBackend.Controllers
             // Зберегаємо зміни в базі 
             await _context.SaveChangesAsync();
 
+            // Відправляємо подію про зміну налаштувань у PostHog
+            _posthog.Capture("mobile_user", "config_updated", new Dictionary<string, object>
+            {
+                { "plant_id", plant.Id },
+                { "new_mode", config.ControlMode },
+                { "new_threshold", config.ManualThreshold ?? 0 }
+            });
+
             return Ok(new
             {
                 message = "Settings updated",
@@ -82,6 +94,13 @@ namespace AuraDripBackend.Controllers
             plant.HasPendingWaterCommand = true;
 
             await _context.SaveChangesAsync();
+
+            // Відправляємо подію про примусовий полив
+            _posthog.Capture("mobile_user", "water_command_sent", new Dictionary<string, object>
+            {
+                { "plant_id", plant.Id },
+                { "plant_name", plant.Name }
+            });
 
             return Ok(new { message = "The forced irrigation command has been successfully added to the queue!" });
         }

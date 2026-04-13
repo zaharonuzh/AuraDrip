@@ -4,6 +4,8 @@ using AuraDripBackend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+using PostHog;
+
 namespace AuraDripBackend.Controllers
 {
     [ApiController]
@@ -11,10 +13,12 @@ namespace AuraDripBackend.Controllers
     public class PlantsController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IPostHogClient _posthog;
 
-        public PlantsController(AppDbContext context)
+        public PlantsController(AppDbContext context, IPostHogClient posthog)
         {
             _context = context;
+            _posthog = posthog;
         }
 
         [HttpPost]
