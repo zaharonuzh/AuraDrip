@@ -63,6 +63,7 @@ namespace AuraDrip.Tests
 
             // Перевіряємо, чи скринька команд очистилася (False)
             var dbPlant = await context.Plants.FindAsync(1);
+            Assert.NotNull(dbPlant);
             Assert.False(dbPlant.HasPendingWaterCommand);
         }
 
@@ -101,7 +102,8 @@ namespace AuraDrip.Tests
 
             // Перевіряємо, чи змінився прапорець у базі даних
             var dbPlant = await context.Plants.FindAsync(1);
-            Assert.True(dbPlant.HasPendingWaterCommand);
+            Assert.NotNull(dbPlant); // Заспокоюємо компілятор, гарантуючи, що рослина знайдена
+            Assert.False(dbPlant.HasPendingWaterCommand);
         }
         //Перевіряємо зміну налаштувань
         [Fact]
@@ -122,6 +124,7 @@ namespace AuraDrip.Tests
             // Assert: перевіряємо, чи змінилися дані в базі
             Assert.NotNull(result);
             var dbPlant = await context.Plants.FindAsync(1);
+            Assert.NotNull(dbPlant);
             Assert.Equal(3, dbPlant.ControlMode); // Перевіряємо новий режим
             Assert.Equal(40, dbPlant.MinMoistureThreshold); // Перевіряємо новий поріг
         }

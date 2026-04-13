@@ -18,8 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // 1. Читаємо налаштування з appsettings.json
-var postHogKey = builder.Configuration["PostHog:ApiKey"];
-var postHogHost = builder.Configuration["PostHog:Host"];
+var postHogKey = builder.Configuration["PostHog:ApiKey"] ?? "dummy_key_for_tests";
+var postHogHost = builder.Configuration["PostHog:Host"] ?? "https://us.i.posthog.com";
 
 // 2. Реєструємо клієнт PostHog, використовуючи ці змінні
 builder.Services.AddSingleton<IPostHogClient>(sp =>
