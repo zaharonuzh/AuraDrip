@@ -1,3 +1,5 @@
+using System;
+
 using AuraDripBackend.Data;
 
 using Microsoft.EntityFrameworkCore;
@@ -50,7 +52,11 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AuraDripBackend.Data.AppDbContext>();
 
-    context.Database.Migrate();
+    // Перевіряємо, чи БД підтримує міграції(справжня БД, а не InMemory для тестів)
+    if (context.Database.IsRelational())
+    {
+        context.Database.Migrate();
+    }
 
     // 1. Формуємо шлях до файлу
     var basePath = AppContext.BaseDirectory;
