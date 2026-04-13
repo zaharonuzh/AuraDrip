@@ -28,6 +28,13 @@ namespace AuraDripBackend.Controllers
 
             await _context.SaveChangesAsync();
 
+            // Фіксуємо створення нової рослини
+            _posthog?.Capture("mobile_user", "plant_added", new Dictionary<string, object>
+            {
+                { "plant_id", newPlant.Id },
+                { "control_mode", newPlant.ControlMode }
+            });
+
             return Ok(newPlant);
         }
     }

@@ -64,7 +64,7 @@ namespace AuraDripBackend.Controllers
             await _context.SaveChangesAsync();
 
             // Відправляємо подію про зміну налаштувань у PostHog
-            _posthog.Capture("mobile_user", "config_updated", new Dictionary<string, object>
+            _posthog?.Capture("mobile_user", "config_updated", new Dictionary<string, object>
             {
                 { "plant_id", plant.Id },
                 { "new_mode", config.ControlMode },
@@ -96,7 +96,7 @@ namespace AuraDripBackend.Controllers
             await _context.SaveChangesAsync();
 
             // Відправляємо подію про примусовий полив
-            _posthog.Capture("mobile_user", "water_command_sent", new Dictionary<string, object>
+            _posthog?.Capture("mobile_user", "water_command_sent", new Dictionary<string, object>
             {
                 { "plant_id", plant.Id },
                 { "plant_name", plant.Name }

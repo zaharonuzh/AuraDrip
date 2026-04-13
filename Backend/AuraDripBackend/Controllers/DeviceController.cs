@@ -44,7 +44,7 @@ namespace AuraDripBackend.Controllers
             await _context.SaveChangesAsync();
 
             // Відправляємо дані від пристрою в аналітику
-            _posthog.Capture("esp32_device", "telemetry_received", new Dictionary<string, object>
+            _posthog?.Capture("esp32_device", "telemetry_received", new Dictionary<string, object>
             {
                 { "plant_id", plant.Id },
                 { "soil_moisture", data.SoilMoisture },
