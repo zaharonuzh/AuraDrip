@@ -28,7 +28,7 @@ namespace AuraDrip.Tests
         {
             // Arrange
             using var context = GetInMemoryDbContext();
-            var controller = new DeviceController(context);
+            var controller = new DeviceController(context, null);
             var telemetry = new Telemetry { PlantId = 99 }; // Рослини з ID 99 не існує
 
             // Act
@@ -49,7 +49,7 @@ namespace AuraDrip.Tests
             context.Plants.Add(plant);
             await context.SaveChangesAsync();
 
-            var controller = new DeviceController(context);
+            var controller = new DeviceController(context, null);
             var telemetry = new Telemetry { PlantId = 1, SoilMoisture = 45 };
 
             // Act
@@ -74,7 +74,7 @@ namespace AuraDrip.Tests
         {
             // Arrange
             using var context = GetInMemoryDbContext();
-            var controller = new AppController(context);
+            var controller = new AppController(context, null);
 
             // Act
             var result = await controller.ForceWater(99); // ID 99 не існує
@@ -92,7 +92,7 @@ namespace AuraDrip.Tests
             context.Plants.Add(plant);
             await context.SaveChangesAsync();
 
-            var controller = new AppController(context);
+            var controller = new AppController(context, null);
 
             // Act
             var result = await controller.ForceWater(1) as OkObjectResult;
@@ -114,7 +114,7 @@ namespace AuraDrip.Tests
             context.Plants.Add(new Plant { Id = 1, ControlMode = 2, MinMoistureThreshold = 20 });
             await context.SaveChangesAsync();
 
-            var controller = new AppController(context);
+            var controller = new AppController(context, null);
             // Нові налаштування від мобільного додатка: Режим 3 (Фікс. поріг) і вологість 40%
             var config = new UpdateConfigDto { ControlMode = 3, ManualThreshold = 40 };
 
