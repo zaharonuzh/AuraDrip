@@ -1,6 +1,9 @@
 using AuraDripBackend.Data;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+
+using PostHog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,19 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// 1. Читаємо налаштування з appsettings.json
+var postHogKey = builder.Configuration["PostHog:ApiKey"];
+var postHogHost = builder.Configuration["PostHog:Host"];
+
+// 2. Реєструємо клієнт PostHog, використовуючи ці змінні
+builder.Services.AddSingleton<IPostHogClient>(sp =>
+    new PostHogClient(new PostHogOptions
+    {
+        ProjectApiKey = postHogKey,
+        HostUrl = new Uri(postHogHost)
+    })
+);
 
 var app = builder.Build();
 
@@ -61,7 +77,11 @@ app.MapGet("/api/check-catalog", (AuraDripBackend.Data.AppDbContext db) => {
     return db.PlantCatalogs.ToList();
 });
 
+var posthog = app.Services.GetRequiredService<IPostHogClient>();
+posthog.Capture("server_admin", "backend_started");
+
 app.Run();
+
 public partial class Program { }
 //до невидимого класу Program, який компілятор сам створив, просимо додати статус public (публічний),
 //щоб мої тести з сусіднього проєкту могли його бачити і запускати
