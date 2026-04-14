@@ -9,6 +9,21 @@ using PostHog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Підключаємо Sentry
+var sentryDsn = builder.Configuration["Sentry__Dsn"];
+// Перевіряємо, чи є ключ і чи він справжній (щоб не пропустити заглушку з appsettings.json)
+bool isSentryConfigured = !string.IsNullOrEmpty(sentryDsn) && sentryDsn.StartsWith("http");
+
+if (isSentryConfigured)
+{
+    // Підключаємо Sentry тільки якщо є реальний ключ
+    builder.WebHost.UseSentry(o =>
+    {
+        o.Dsn = sentryDsn;
+        o.TracesSampleRate = 1.0;
+        o.EnableLogs = true;
+    });
+}
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -42,6 +57,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+if (isSentryConfigured)
+{
+    app.UseSentryTracing();
+}
 
 app.UseAuthorization();
 
