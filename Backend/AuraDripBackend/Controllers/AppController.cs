@@ -144,5 +144,13 @@ namespace AuraDripBackend.Controllers
             var currentStatus = config["AppStatus"];
             return Ok(new { environment = currentStatus });
         }
+
+        // Спеціальний метод для тестування Sentry (Лабораторна 6, Крок 2)
+        [HttpGet("test-error")] // Маршрут: /api/app/test-error
+        public IActionResult TestError()
+        {
+            // Навмисно генеруємо критичну помилку
+            throw new Exception("Sentry Backend Test Error: Упс, сервер зламався!");
+        }
     }
 }
