@@ -10,18 +10,20 @@ using PostHog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Підключаємо Sentry
-builder.WebHost.UseSentry(o =>
+var sentryDsn = builder.Configuration["Sentry__Dsn"];
+// Перевіряємо, чи є ключ і чи він справжній (щоб не пропустити заглушку з appsettings.json)
+bool isSentryConfigured = !string.IsNullOrEmpty(sentryDsn) && sentryDsn.StartsWith("http");
+
+if (isSentryConfigured)
 {
-    // Беремо ключ із налаштувань (або змінних Render), щоб не "світити" ним на GitHub
-    o.Dsn = builder.Configuration["Sentry__Dsn"];
-
-    // Записуємо 100% транзакцій для аналізу швидкодії (APM)
-    o.TracesSampleRate = 1.0;
-
-    // Підключаємо збір логів
-    o.EnableLogs = true;
-});
-
+    // Підключаємо Sentry тільки якщо є реальний ключ
+    builder.WebHost.UseSentry(o =>
+    {
+        o.Dsn = sentryDsn;
+        o.TracesSampleRate = 1.0;
+        o.EnableLogs = true;
+    });
+}
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -56,7 +58,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseSentryTracing();
+if (isSentryConfigured)
+{
+    app.UseSentryTracing();
+}
 
 app.UseAuthorization();
 
