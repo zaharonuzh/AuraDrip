@@ -10,7 +10,7 @@ using PostHog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Підключаємо Sentry
-var sentryDsn = builder.Configuration["Sentry__Dsn"];
+var sentryDsn = builder.Configuration["Sentry:Dsn"];
 // Перевіряємо, чи є ключ і чи він справжній (щоб не пропустити заглушку з appsettings.json)
 bool isSentryConfigured = !string.IsNullOrEmpty(sentryDsn) && sentryDsn.StartsWith("http");
 
