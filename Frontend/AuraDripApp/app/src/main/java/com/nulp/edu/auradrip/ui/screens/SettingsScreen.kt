@@ -12,6 +12,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.nulp.edu.auradrip.LocalLanguage
 import com.nulp.edu.auradrip.R
+import androidx.compose.ui.res.stringResource
+import androidx.core.content.edit
 
 @Composable
 fun SettingsScreen() {
@@ -27,7 +29,7 @@ fun SettingsScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = context.getString(R.string.settings),
+            text = stringResource(R.string.settings),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
@@ -36,7 +38,7 @@ fun SettingsScreen() {
         Spacer(modifier = Modifier.height(32.dp))
 
         Text(
-            text = context.getString(R.string.language),
+            text = stringResource(R.string.language),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(bottom = 8.dp)
         )
@@ -47,7 +49,7 @@ fun SettingsScreen() {
                 .padding(8.dp)
                 .clickable {
                     if (langState.value != "en") {
-                        prefs.edit().putString("language", "en").apply()
+                        prefs.edit { putString("language", "en") }
                         langState.value = "en"
                     }
                 }
@@ -56,7 +58,7 @@ fun SettingsScreen() {
                 selected = langState.value == "en",
                 onClick = null
             )
-            Text(text = context.getString(R.string.english), modifier = Modifier.padding(start = 8.dp))
+            Text(text = stringResource(R.string.english), modifier = Modifier.padding(start = 8.dp))
         }
 
         Row(
@@ -65,7 +67,7 @@ fun SettingsScreen() {
                 .padding(8.dp)
                 .clickable {
                     if (langState.value != "uk") {
-                        prefs.edit().putString("language", "uk").apply()
+                        prefs.edit { putString("language", "uk") }
                         langState.value = "uk"
                     }
                 }
@@ -74,7 +76,7 @@ fun SettingsScreen() {
                 selected = langState.value == "uk",
                 onClick = null
             )
-            Text(text = context.getString(R.string.ukrainian), modifier = Modifier.padding(start = 8.dp))
+            Text(text = stringResource(R.string.ukrainian), modifier = Modifier.padding(start = 8.dp))
         }
     }
 }

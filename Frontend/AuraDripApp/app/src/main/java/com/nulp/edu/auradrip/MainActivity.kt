@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import com.nulp.edu.auradrip.ui.screens.MainScreen
 import com.nulp.edu.auradrip.ui.theme.MyApplicationTheme
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             val langState = remember { mutableStateOf(prefs.getString("language", "en") ?: "en") }
 
             val locale = Locale.Builder().setLanguage(langState.value).build()
-            val config = Configuration(context.resources.configuration)
+            val config = LocalConfiguration.current
             config.setLocale(locale)
             val newContext = context.createConfigurationContext(config)
 
