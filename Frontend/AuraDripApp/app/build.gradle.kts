@@ -18,8 +18,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "APP_STATUS", "\"Development\"")
+        }
+
         release {
-            isMinifyEnabled = false
+            buildConfigField("String", "APP_STATUS", "\"Production Mode\"")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("debug")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -32,6 +39,18 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    lint {
+        abortOnError = true
+        checkReleaseBuilds = true
+        disable += listOf(
+            "TypographyFractions",
+            "UnusedAttribute",
+            "AndroidGradlePluginVersion",
+            "NewerVersionAvailable",
+            "UnusedResources"
+        )
     }
 }
 
