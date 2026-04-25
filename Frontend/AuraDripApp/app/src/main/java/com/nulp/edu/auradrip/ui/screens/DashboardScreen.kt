@@ -10,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import com.nulp.edu.auradrip.R
+import androidx.compose.ui.res.stringResource
+import com.nulp.edu.auradrip.BuildConfig
 
 @Composable
 fun DashboardScreen() {
@@ -19,7 +21,8 @@ fun DashboardScreen() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = context.getString(R.string.dashboard),
+//            text = stringResource(R.string.dashboard),
+            text = BuildConfig.APP_STATUS,
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary

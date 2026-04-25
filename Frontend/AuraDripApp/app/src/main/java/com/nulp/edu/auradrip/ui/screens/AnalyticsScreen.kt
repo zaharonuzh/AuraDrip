@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import com.nulp.edu.auradrip.R
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun AnalyticsScreen() {
@@ -19,7 +20,7 @@ fun AnalyticsScreen() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = context.getString(R.string.analytics),
+            text = stringResource(R.string.analytics),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
