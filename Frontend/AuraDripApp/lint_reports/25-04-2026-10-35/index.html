@@ -1,0 +1,965 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="author" content="JetBrains">
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Inspections on No Reference  </title>
+</head>
+<body>
+<div id="inspection-tree">
+<h4>Inspections on No Reference</h4>
+
+<ol class="tree">
+<li><label for="1910496769"><b>Inspection&nbsp;Results</b>&nbsp;<span class="grayout">&nbsp;&#39;Project&nbsp;Default&#39;&nbsp;profile&nbsp;&nbsp;30&nbsp;warnings&nbsp;2&nbsp;weak&nbsp;warnings&nbsp;1&nbsp;grammar&nbsp;error&nbsp;12&nbsp;typos&nbsp;</span></label><input type="checkbox" checked onclick="navigate(1910496769)" id="1910496769">
+<ol class="tree">
+<li><label for="1441403426"><b>Android&nbsp;Lint:&nbsp;Correctness</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;3&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(1441403426)" id="1441403426">
+<ol class="tree">
+<li><label for="1109016913"><b>App&nbsp;Bundle&nbsp;handling&nbsp;of&nbsp;runtime&nbsp;locale&nbsp;changes</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1109016913)" id="1109016913">
+<ol class="tree">
+<li><label for="1873130108">file&nbsp;<b>MainActivity.kt</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1873130108)" id="1873130108">
+<div id="d1873130108" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>MainActivity.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt">MainActivity.kt</a></code> in <code>com.nulp.edu.auradrip</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Found dynamic locale changes, but did not find corresponding Play Core library calls for downloading languages and splitting by language is not disabled in the <code>bundle</code> configuration (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt#1199">30</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="689977140"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Found&nbsp;dynamic&nbsp;locale&nbsp;changes,&nbsp;but&nbsp;did&nbsp;not&nbsp;find&nbsp;corresponding&nbsp;Play&nbsp;Core&nbsp;library&nbsp;calls&nbsp;for&nbsp;downloading&nbsp;languages&nbsp;and&nbsp;splitting&nbsp;by&nbsp;language&nbsp;is&nbsp;not&nbsp;disabled&nbsp;in&nbsp;the&nbsp;bundle&nbsp;configuration&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(689977140)" id="689977140">
+<div id="d689977140" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>MainActivity.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt">MainActivity.kt</a></code> in <code>com.nulp.edu.auradrip</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Found dynamic locale changes, but did not find corresponding Play Core library calls for downloading languages and splitting by language is not disabled in the <code>bundle</code> configuration (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt#1199">30</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="383782589"><b>Attribute&nbsp;unused&nbsp;on&nbsp;older&nbsp;versions</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(383782589)" id="383782589">
+<ol class="tree">
+<li><label for="712885422">file&nbsp;<b>AndroidManifest.xml</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(712885422)" id="712885422">
+<div id="d712885422" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>AndroidManifest.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml">…\app\src\main\AndroidManifest.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Attribute <code>localeConfig</code> is only used in API level 33 and higher (current min is 26) (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml#625">16</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="433902993"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Attribute&nbsp;localeConfig&nbsp;is&nbsp;only&nbsp;used&nbsp;in&nbsp;API&nbsp;level&nbsp;33&nbsp;and&nbsp;higher&nbsp;(current&nbsp;min&nbsp;is&nbsp;26)&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(433902993)" id="433902993">
+<div id="d433902993" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>AndroidManifest.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml">…\app\src\main\AndroidManifest.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Attribute <code>localeConfig</code> is only used in API level 33 and higher (current min is 26) (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml#625">16</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="857444977"><b>Newer&nbsp;Library&nbsp;Versions&nbsp;Available</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(857444977)" id="857444977">
+<ol class="tree">
+<li><label for="1239867291">file&nbsp;<b>build.gradle.kts</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1239867291)" id="1239867291">
+<div id="d1239867291" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>build.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts">build.gradle.kts</a></code> in <code>AuraDripApp.app</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>A newer version of com.squareup.okhttp3:okhttp than 4.12.0 is available: 5.3.2 (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts#1966">67</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="2019736183"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;A&nbsp;newer&nbsp;version&nbsp;of&nbsp;com.squareup.okhttp3:okhttp&nbsp;than&nbsp;4.12.0&nbsp;is&nbsp;available:&nbsp;5.3.2&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(2019736183)" id="2019736183">
+<div id="d2019736183" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>build.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts">build.gradle.kts</a></code> in <code>AuraDripApp.app</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>A newer version of com.squareup.okhttp3:okhttp than 4.12.0 is available: 5.3.2 (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts#1966">67</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="1212643529"><b>Android&nbsp;Lint:&nbsp;Performance</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;7&nbsp;warnings&nbsp;</span></label><input type="checkbox" checked onclick="navigate(1212643529)" id="1212643529">
+<ol class="tree">
+<li><label for="793336757"><b>Unused&nbsp;resources</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;7&nbsp;warnings&nbsp;</span></label><input type="checkbox" checked onclick="navigate(793336757)" id="793336757">
+<ol class="tree">
+<li><label for="897959558">file&nbsp;<b>colors.xml</b>&nbsp;<span class="grayout">&nbsp;&nbsp;7&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(897959558)" id="897959558">
+<div id="d897959558" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="1959477204"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;The&nbsp;resource&nbsp;R.color.purple_200&nbsp;appears&nbsp;to&nbsp;be&nbsp;unused&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1959477204)" id="1959477204">
+<div id="d1959477204" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="1989117782"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;The&nbsp;resource&nbsp;R.color.purple_500&nbsp;appears&nbsp;to&nbsp;be&nbsp;unused&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1989117782)" id="1989117782">
+<div id="d1989117782" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="1621725134"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;The&nbsp;resource&nbsp;R.color.purple_700&nbsp;appears&nbsp;to&nbsp;be&nbsp;unused&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1621725134)" id="1621725134">
+<div id="d1621725134" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="992955324"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;The&nbsp;resource&nbsp;R.color.teal_200&nbsp;appears&nbsp;to&nbsp;be&nbsp;unused&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(992955324)" id="992955324">
+<div id="d992955324" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="224972849"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;The&nbsp;resource&nbsp;R.color.teal_700&nbsp;appears&nbsp;to&nbsp;be&nbsp;unused&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(224972849)" id="224972849">
+<div id="d224972849" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="2008274173"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;The&nbsp;resource&nbsp;R.color.black&nbsp;appears&nbsp;to&nbsp;be&nbsp;unused&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(2008274173)" id="2008274173">
+<div id="d2008274173" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="2133701395"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;The&nbsp;resource&nbsp;R.color.white&nbsp;appears&nbsp;to&nbsp;be&nbsp;unused&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(2133701395)" id="2133701395">
+<div id="d2133701395" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>colors.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml">…\app\src\main\res\values\colors.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>The resource <code>R.color.purple_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#55">3</a>)
+<li>The resource <code>R.color.purple_500</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#102">4</a>)
+<li>The resource <code>R.color.purple_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#149">5</a>)
+<li>The resource <code>R.color.teal_200</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#196">6</a>)
+<li>The resource <code>R.color.teal_700</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#241">7</a>)
+<li>The resource <code>R.color.black</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#286">8</a>)
+<li>The resource <code>R.color.white</code> appears to be unused (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/res/values/colors.xml#328">9</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="1313048284"><b>Android&nbsp;Lint:&nbsp;Productivity</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(1313048284)" id="1313048284">
+<ol class="tree">
+<li><label for="1214727590"><b>Use&nbsp;TOML&nbsp;Version&nbsp;Catalog&nbsp;Instead</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(1214727590)" id="1214727590">
+<ol class="tree">
+<li><label for="217880446">file&nbsp;<b>build.gradle.kts</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(217880446)" id="217880446">
+<div id="d217880446" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>build.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts">build.gradle.kts</a></code> in <code>AuraDripApp.app</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Use version catalog instead (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts#1966">67</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="867080323"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Use&nbsp;version&nbsp;catalog&nbsp;instead&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(867080323)" id="867080323">
+<div id="d867080323" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>build.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts">build.gradle.kts</a></code> in <code>AuraDripApp.app</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Use version catalog instead (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/build.gradle.kts#1966">67</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="835771120"><b>Gemini</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(835771120)" id="835771120">
+<ol class="tree">
+<li><label for="489410253"><b>AiExclude</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(489410253)" id="489410253">
+<ol class="tree">
+<li><label for="324508777"><b>Configuration&nbsp;mistakes&nbsp;in&nbsp;.aiexclude&nbsp;files</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(324508777)" id="324508777">
+<ol class="tree">
+<li><label for="104583553">file&nbsp;<b>.aiexclude</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(104583553)" id="104583553">
+<div id="d104583553" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>.aiexclude</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/.aiexclude">…\.aiexclude [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>An empty .aiexclude file does not actually exclude anything. Use * instead.
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="460564008"><span style="margin:1px;background:#ffabab">ERROR</span>&nbsp;An&nbsp;empty&nbsp;.aiexclude&nbsp;file&nbsp;does&nbsp;not&nbsp;actually&nbsp;exclude&nbsp;anything.&nbsp;Use&nbsp;*&nbsp;instead.&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(460564008)" id="460564008">
+<div id="d460564008" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>.aiexclude</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/.aiexclude">…\.aiexclude [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>An empty .aiexclude file does not actually exclude anything. Use * instead.
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="145925898"><b>JVM&nbsp;languages</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;4&nbsp;warnings&nbsp;</span></label><input type="checkbox" checked onclick="navigate(145925898)" id="145925898">
+<ol class="tree">
+<li><label for="1506847036"><b>Unstable&nbsp;API&nbsp;Usage</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;4&nbsp;warnings&nbsp;</span></label><input type="checkbox" checked onclick="navigate(1506847036)" id="1506847036">
+<ol class="tree">
+<li><label for="673647446">file&nbsp;<b>settings.gradle.kts</b>&nbsp;<span class="grayout">&nbsp;&nbsp;4&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(673647446)" id="673647446">
+<div id="d673647446" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>settings.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts">settings.gradle.kts</a></code> in <code>AuraDripApp</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>'getRepositoriesMode()' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'org.gradle.api.initialization.resolve.RepositoriesMode' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'FAIL_ON_PROJECT_REPOS' is declared in unstable enum 'org.gradle.api.initialization.resolve.RepositoriesMode' marked with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'repositories(org.gradle.api.Action&lt;? super org.gradle.api.artifacts.dsl.RepositoryHandler&gt;)' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#509">19</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="743089981"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;&#39;getRepositoriesMode()&#39;&nbsp;is&nbsp;marked&nbsp;unstable&nbsp;with&nbsp;@Incubating&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(743089981)" id="743089981">
+<div id="d743089981" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>settings.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts">settings.gradle.kts</a></code> in <code>AuraDripApp</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>'getRepositoriesMode()' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'org.gradle.api.initialization.resolve.RepositoriesMode' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'FAIL_ON_PROJECT_REPOS' is declared in unstable enum 'org.gradle.api.initialization.resolve.RepositoriesMode' marked with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'repositories(org.gradle.api.Action&lt;? super org.gradle.api.artifacts.dsl.RepositoryHandler&gt;)' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#509">19</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="2020525903"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;&#39;org.gradle.api.initialization.resolve.RepositoriesMode&#39;&nbsp;is&nbsp;marked&nbsp;unstable&nbsp;with&nbsp;@Incubating&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(2020525903)" id="2020525903">
+<div id="d2020525903" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>settings.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts">settings.gradle.kts</a></code> in <code>AuraDripApp</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>'getRepositoriesMode()' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'org.gradle.api.initialization.resolve.RepositoriesMode' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'FAIL_ON_PROJECT_REPOS' is declared in unstable enum 'org.gradle.api.initialization.resolve.RepositoriesMode' marked with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'repositories(org.gradle.api.Action&lt;? super org.gradle.api.artifacts.dsl.RepositoryHandler&gt;)' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#509">19</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="263340181"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;&#39;FAIL_ON_PROJECT_REPOS&#39;&nbsp;is&nbsp;declared&nbsp;in&nbsp;unstable&nbsp;enum&nbsp;&#39;org.gradle.api.initialization.resolve.RepositoriesMode&#39;&nbsp;marked&nbsp;with&nbsp;@Incubating&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(263340181)" id="263340181">
+<div id="d263340181" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>settings.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts">settings.gradle.kts</a></code> in <code>AuraDripApp</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>'getRepositoriesMode()' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'org.gradle.api.initialization.resolve.RepositoriesMode' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'FAIL_ON_PROJECT_REPOS' is declared in unstable enum 'org.gradle.api.initialization.resolve.RepositoriesMode' marked with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'repositories(org.gradle.api.Action&lt;? super org.gradle.api.artifacts.dsl.RepositoryHandler&gt;)' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#509">19</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="906237250"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;&#39;repositories(org.gradle.api.Action&lt;?&nbsp;super&nbsp;org.gradle.api.artifacts.dsl.RepositoryHandler&gt;)&#39;&nbsp;is&nbsp;marked&nbsp;unstable&nbsp;with&nbsp;@Incubating&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(906237250)" id="906237250">
+<div id="d906237250" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>settings.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts">settings.gradle.kts</a></code> in <code>AuraDripApp</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>'getRepositoriesMode()' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'org.gradle.api.initialization.resolve.RepositoriesMode' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'FAIL_ON_PROJECT_REPOS' is declared in unstable enum 'org.gradle.api.initialization.resolve.RepositoriesMode' marked with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#444">18</a>)
+<li>'repositories(org.gradle.api.Action&lt;? super org.gradle.api.artifacts.dsl.RepositoryHandler&gt;)' is marked unstable with @Incubating (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/settings.gradle.kts#509">19</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="1629249724"><b>Java</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;4&nbsp;warnings&nbsp;</span></label><input type="checkbox" checked onclick="navigate(1629249724)" id="1629249724">
+<ol class="tree">
+<li><label for="1253895116"><b>Declaration&nbsp;redundancy</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;4&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(1253895116)" id="1253895116">
+<ol class="tree">
+<li><label for="205647831"><b>Method&nbsp;always&nbsp;returns&nbsp;the&nbsp;same&nbsp;value</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;2&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(205647831)" id="205647831">
+<ol class="tree">
+<li><label for="1364438898">class&nbsp;<b>SensorRepository</b>&nbsp;<span class="grayout">&nbsp;&nbsp;2&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(1364438898)" id="1364438898">
+<div id="d1364438898" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Interface&nbsp;<b><code>SensorRepository</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.data.repository</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="922036977"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;All&nbsp;implementations&nbsp;of&nbsp;method&nbsp;&#39;getWaterLevel()&#39;&nbsp;always&nbsp;return&nbsp;&#39;5&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(922036977)" id="922036977">
+<div id="d922036977" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;abstract&nbsp;method&nbsp;<code>int&nbsp;<b>getWaterLevel</b>()</code><br>in interface&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepository.kt#57" qualifiedname="com.nulp.edu.auradrip.data.repository.SensorRepository">SensorRepository</a></code> in <code>com.nulp.edu.auradrip.data.repository</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>All implementations of method '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepository.kt#descr:0"><code>getWaterLevel</code></a>()' always return '5' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepository.kt#81">5</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="843250121"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;All&nbsp;implementations&nbsp;of&nbsp;method&nbsp;&#39;getSoilMoisture()&#39;&nbsp;always&nbsp;return&nbsp;&#39;10&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(843250121)" id="843250121">
+<div id="d843250121" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;abstract&nbsp;method&nbsp;<code>int&nbsp;<b>getSoilMoisture</b>()</code><br>in interface&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepository.kt#57" qualifiedname="com.nulp.edu.auradrip.data.repository.SensorRepository">SensorRepository</a></code> in <code>com.nulp.edu.auradrip.data.repository</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>All implementations of method '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepository.kt#descr:0"><code>getSoilMoisture</code></a>()' always return '10' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepository.kt#111">7</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="1871982044"><b>Unnecessary&nbsp;module&nbsp;dependency</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;2&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(1871982044)" id="1871982044">
+<ol class="tree">
+<li><label for="1386935510">module&nbsp;<b>AuraDripApp.app.androidTest</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1386935510)" id="1386935510">
+<div id="d1386935510" style="display:none">
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Module 'AuraDripApp.app.androidTest' sources do not depend on module 'AuraDripApp.app.main' sources
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="1412785283"><span style="margin:1px;"></span>&nbsp;Module&nbsp;&#39;AuraDripApp.app.androidTest&#39;&nbsp;sources&nbsp;do&nbsp;not&nbsp;depend&nbsp;on&nbsp;module&nbsp;&#39;AuraDripApp.app.main&#39;&nbsp;sources&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1412785283)" id="1412785283">
+<div id="d1412785283" style="display:none">
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Module 'AuraDripApp.app.androidTest' sources do not depend on module 'AuraDripApp.app.main' sources
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+<li><label for="1584648664">module&nbsp;<b>AuraDripApp.app.unitTest</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1584648664)" id="1584648664">
+<div id="d1584648664" style="display:none">
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Module 'AuraDripApp.app.unitTest' sources do not depend on module 'AuraDripApp.app.main' sources
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="2053180347"><span style="margin:1px;"></span>&nbsp;Module&nbsp;&#39;AuraDripApp.app.unitTest&#39;&nbsp;sources&nbsp;do&nbsp;not&nbsp;depend&nbsp;on&nbsp;module&nbsp;&#39;AuraDripApp.app.main&#39;&nbsp;sources&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(2053180347)" id="2053180347">
+<div id="d2053180347" style="display:none">
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Module 'AuraDripApp.app.unitTest' sources do not depend on module 'AuraDripApp.app.main' sources
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="380296213"><b>Kotlin</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;9&nbsp;warnings&nbsp;2&nbsp;weak&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(380296213)" id="380296213">
+<ol class="tree">
+<li><label for="1387246154"><b>Redundant&nbsp;constructs</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;9&nbsp;warnings&nbsp;1&nbsp;weak&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1387246154)" id="1387246154">
+<ol class="tree">
+<li><label for="879600935"><b>Control&nbsp;flow&nbsp;with&nbsp;empty&nbsp;body</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(879600935)" id="879600935">
+<ol class="tree">
+<li><label for="352672101">class&nbsp;<b>WaterLevelMonitor</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(352672101)" id="352672101">
+<div id="d352672101" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>WaterLevelMonitor</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.logic</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="1663020971"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;&#39;if&#39;&nbsp;has&nbsp;empty&nbsp;body&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1663020971)" id="1663020971">
+<div id="d1663020971" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;method&nbsp;<code>void&nbsp;<b>checkLevel</b>(int currentLevel)</code><br>in class&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/WaterLevelMonitor.kt#101" qualifiedname="com.nulp.edu.auradrip.logic.WaterLevelMonitor">WaterLevelMonitor</a></code> in <code>com.nulp.edu.auradrip.logic</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>'if' has empty body (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/WaterLevelMonitor.kt#293">8</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="926945257"><b>Redundant&nbsp;&#39;if&#39;&nbsp;statement</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;weak&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(926945257)" id="926945257">
+<ol class="tree">
+<li><label for="46442816">class&nbsp;<b>ThresholdValidators</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;weak&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(46442816)" id="46442816">
+<div id="d46442816" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>ThresholdValidators</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.logic</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="507557378"><span style="margin:1px;">WEAK WARNING</span>&nbsp;Redundant&nbsp;&#39;if&#39;&nbsp;statement&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(507557378)" id="507557378">
+<div id="d507557378" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;method&nbsp;<code>boolean&nbsp;<b>irrigationThresholdValidate</b>(int startValue, int stopValue)</code><br>in class&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/ThresholdValidators.kt#44" qualifiedname="com.nulp.edu.auradrip.logic.ThresholdValidators">ThresholdValidators</a></code> in <code>com.nulp.edu.auradrip.logic</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Redundant 'if' statement (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/ThresholdValidators.kt#155">6</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="1464905897"><b>Redundant&nbsp;qualifier&nbsp;name</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1464905897)" id="1464905897">
+<ol class="tree">
+<li><label for="527264856">class&nbsp;<b>MainActivity</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(527264856)" id="527264856">
+<div id="d527264856" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>MainActivity</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="893154790"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Remove&nbsp;redundant&nbsp;qualifier&nbsp;name&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(893154790)" id="893154790">
+<div id="d893154790" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">protected&nbsp;method&nbsp;<code>void&nbsp;<b>onCreate</b>(Bundle savedInstanceState)</code><br>in class&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt#635" qualifiedname="com.nulp.edu.auradrip.MainActivity">MainActivity</a></code> in <code>com.nulp.edu.auradrip</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Remove redundant qualifier name (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt#880">25</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="1183122087"><b>Unused&nbsp;import&nbsp;directive</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;2&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(1183122087)" id="1183122087">
+<ol class="tree">
+<li><label for="1192553932">file&nbsp;<b>MainActivity.kt</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1192553932)" id="1192553932">
+<div id="d1192553932" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>MainActivity.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt">MainActivity.kt</a></code> in <code>com.nulp.edu.auradrip</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Unused import directive (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt#62">4</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="1704270182"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Unused&nbsp;import&nbsp;directive&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1704270182)" id="1704270182">
+<div id="d1704270182" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>MainActivity.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt">MainActivity.kt</a></code> in <code>com.nulp.edu.auradrip</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Unused import directive (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/MainActivity.kt#62">4</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+<li><label for="2015398430">file&nbsp;<b>PumpController.kt</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(2015398430)" id="2015398430">
+<div id="d2015398430" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>PumpController.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip.logic</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/PumpController.kt">PumpController.kt</a></code> in <code>com.nulp.edu.auradrip.logic</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Unused import directive (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/PumpController.kt#99">4</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="1304486510"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Unused&nbsp;import&nbsp;directive&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1304486510)" id="1304486510">
+<div id="d1304486510" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>PumpController.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip.logic</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/PumpController.kt">PumpController.kt</a></code> in <code>com.nulp.edu.auradrip.logic</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Unused import directive (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/PumpController.kt#99">4</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="151509778"><b>Unused&nbsp;symbol</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;3&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(151509778)" id="151509778">
+<ol class="tree">
+<li><label for="1528523806">class&nbsp;<b>SensorRepositoryImpl</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1528523806)" id="1528523806">
+<div id="d1528523806" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>SensorRepositoryImpl</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.data.repository</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Class &quot;SensorRepositoryImpl&quot; is never used (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepositoryImpl.kt#47">3</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="1871005507"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Class&nbsp;&quot;SensorRepositoryImpl&quot;&nbsp;is&nbsp;never&nbsp;used&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1871005507)" id="1871005507">
+<div id="d1871005507" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>SensorRepositoryImpl</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.data.repository</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Class &quot;SensorRepositoryImpl&quot; is never used (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SensorRepositoryImpl.kt#47">3</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+<li><label for="1777052236">class&nbsp;<b>SettingsRepositoryImpl</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1777052236)" id="1777052236">
+<div id="d1777052236" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>SettingsRepositoryImpl</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.data.repository</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Class &quot;SettingsRepositoryImpl&quot; is never used (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SettingsRepositoryImpl.kt#142">6</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="728790677"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Class&nbsp;&quot;SettingsRepositoryImpl&quot;&nbsp;is&nbsp;never&nbsp;used&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(728790677)" id="728790677">
+<div id="d728790677" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>SettingsRepositoryImpl</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.data.repository</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Class &quot;SettingsRepositoryImpl&quot; is never used (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/data/repository/SettingsRepositoryImpl.kt#142">6</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+<li><label for="1792459835">class&nbsp;<b>WaterLevelMonitor</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1792459835)" id="1792459835">
+<div id="d1792459835" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>WaterLevelMonitor</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.logic</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="319305736"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Property&nbsp;&quot;notificationService&quot;&nbsp;is&nbsp;never&nbsp;used&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(319305736)" id="319305736">
+<div id="d319305736" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;constructor&nbsp;<code><b>WaterLevelMonitor</b>(NotificationService notificationService)</code><br>in class&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/WaterLevelMonitor.kt#101" qualifiedname="com.nulp.edu.auradrip.logic.WaterLevelMonitor">WaterLevelMonitor</a></code> in <code>com.nulp.edu.auradrip.logic</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Property &quot;notificationService&quot; is never used (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/WaterLevelMonitor.kt#95">5</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="321201668"><b>Unused&nbsp;variable</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;2&nbsp;warnings&nbsp;</span></label><input type="checkbox" onclick="navigate(321201668)" id="321201668">
+<ol class="tree">
+<li><label for="1040401620">file&nbsp;<b>AnalyticsScreen.kt</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1040401620)" id="1040401620">
+<div id="d1040401620" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>AnalyticsScreen.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip.ui.screens</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/ui/screens/AnalyticsScreen.kt">AnalyticsScreen.kt</a></code> in <code>com.nulp.edu.auradrip.ui.screens</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="281759443"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Unused&nbsp;variable&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(281759443)" id="281759443">
+<div id="d281759443" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;static&nbsp;method&nbsp;<code>void&nbsp;<b>AnalyticsScreen</b>()</code><br>in </div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Unused variable (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/ui/screens/AnalyticsScreen.kt#560">17</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+<li><label for="692481166">file&nbsp;<b>BottomNavigationBar.kt</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(692481166)" id="692481166">
+<div id="d692481166" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>BottomNavigationBar.kt</b><br>in package&nbsp;<code>com.nulp.edu.auradrip.ui.navigation</code>file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/ui/navigation/BottomNavigationBar.kt">BottomNavigationBar.kt</a></code> in <code>com.nulp.edu.auradrip.ui.navigation</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="1798407588"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Unused&nbsp;variable&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1798407588)" id="1798407588">
+<div id="d1798407588" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;static&nbsp;method&nbsp;<code>void&nbsp;<b>BottomNavigationBar</b>(NavController navController)</code><br>in </div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Unused variable (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/ui/navigation/BottomNavigationBar.kt#647">17</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="1416088987"><b>Style&nbsp;issues</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;weak&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1416088987)" id="1416088987">
+<ol class="tree">
+<li><label for="608804136"><b>Return&nbsp;or&nbsp;assignment&nbsp;can&nbsp;be&nbsp;lifted&nbsp;out</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;weak&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(608804136)" id="608804136">
+<ol class="tree">
+<li><label for="1957401279">class&nbsp;<b>ThresholdValidators</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;weak&nbsp;warning&nbsp;</span></label><input type="checkbox" onclick="navigate(1957401279)" id="1957401279">
+<div id="d1957401279" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>ThresholdValidators</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip.logic</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="216214849"><span style="margin:1px;">WEAK WARNING</span>&nbsp;&#39;Return&#39;&nbsp;can&nbsp;be&nbsp;lifted&nbsp;out&nbsp;of&nbsp;&#39;if&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(216214849)" id="216214849">
+<div id="d216214849" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;method&nbsp;<code>boolean&nbsp;<b>irrigationThresholdValidate</b>(int startValue, int stopValue)</code><br>in class&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/ThresholdValidators.kt#44" qualifiedname="com.nulp.edu.auradrip.logic.ThresholdValidators">ThresholdValidators</a></code> in <code>com.nulp.edu.auradrip.logic</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>'Return' can be lifted out of 'if' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/logic/ThresholdValidators.kt#155">6</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="89796482"><b>Proofreading</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;grammar&nbsp;error&nbsp;12&nbsp;typos&nbsp;</span></label><input type="checkbox" onclick="navigate(89796482)" id="89796482">
+<ol class="tree">
+<li><label for="1903401689"><b>Grammar</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;grammar&nbsp;error&nbsp;</span></label><input type="checkbox" onclick="navigate(1903401689)" id="1903401689">
+<ol class="tree">
+<li><label for="1105188938">file&nbsp;<b>build.gradle.kts</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;grammar&nbsp;error&nbsp;</span></label><input type="checkbox" onclick="navigate(1105188938)" id="1105188938">
+<div id="d1105188938" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>build.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/build.gradle.kts">build.gradle.kts</a></code> in <code>AuraDripApp</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>This word is normally spelled as one. (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/build.gradle.kts#0">1</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="64634571"><span style="margin:1px;">GRAMMAR ERROR</span>&nbsp;This&nbsp;word&nbsp;is&nbsp;normally&nbsp;spelled&nbsp;as&nbsp;one.&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(64634571)" id="64634571">
+<div id="d64634571" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>build.gradle.kts</b><br>in file&nbsp;&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/build.gradle.kts">build.gradle.kts</a></code> in <code>AuraDripApp</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>This word is normally spelled as one. (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/build.gradle.kts#0">1</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+<li><label for="1346164984"><b>Spelling</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;12&nbsp;typos&nbsp;</span></label><input type="checkbox" onclick="navigate(1346164984)" id="1346164984">
+<ol class="tree">
+<li><label for="971131556">class&nbsp;<b>AuraDripApplication</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;typo&nbsp;</span></label><input type="checkbox" onclick="navigate(971131556)" id="971131556">
+<div id="d971131556" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;Class&nbsp;<b><code>AuraDripApplication</code></b><br>in package&nbsp;<code>com.nulp.edu.auradrip</code></div><p class="problem-description-group">No problems found</p></div>
+<ol class="tree">
+<li><label for="1583263111"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;auradrip&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1583263111)" id="1583263111">
+<div id="d1583263111" style="display:none">
+<p class="problem-description-group">Location</p><div class="location">public&nbsp;method&nbsp;<code>void&nbsp;<b>onCreate</b>()</code><br>in class&nbsp;<code><a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/AuraDripApplication.kt#505" qualifiedname="com.nulp.edu.auradrip.AuraDripApplication">AuraDripApplication</a></code> in <code>com.nulp.edu.auradrip</code></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/AuraDripApplication.kt#descr:0"><code>auradrip</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/java/com/nulp/edu/auradrip/AuraDripApplication.kt#771">24</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+<li><label for="1499794181">file&nbsp;<b>gradle&#8209;daemon&#8209;jvm.properties</b>&nbsp;<span class="grayout">&nbsp;&nbsp;5&nbsp;typos&nbsp;</span></label><input type="checkbox" onclick="navigate(1499794181)" id="1499794181">
+<div id="d1499794181" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradle-daemon-jvm.properties</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties">…\gradle\gradle-daemon-jvm.properties [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:0"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#43">2</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:1"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#262">4</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:2"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#475">6</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:3"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#690">8</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:4"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#901">10</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="308984025"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;AARCH&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(308984025)" id="308984025">
+<div id="d308984025" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradle-daemon-jvm.properties</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties">…\gradle\gradle-daemon-jvm.properties [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:0"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#43">2</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:1"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#262">4</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:2"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#475">6</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:3"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#690">8</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:4"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#901">10</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="504070356"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;AARCH&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(504070356)" id="504070356">
+<div id="d504070356" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradle-daemon-jvm.properties</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties">…\gradle\gradle-daemon-jvm.properties [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:0"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#43">2</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:1"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#262">4</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:2"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#475">6</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:3"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#690">8</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:4"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#901">10</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="722071351"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;AARCH&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(722071351)" id="722071351">
+<div id="d722071351" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradle-daemon-jvm.properties</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties">…\gradle\gradle-daemon-jvm.properties [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:0"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#43">2</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:1"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#262">4</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:2"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#475">6</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:3"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#690">8</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:4"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#901">10</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="138852474"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;AARCH&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(138852474)" id="138852474">
+<div id="d138852474" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradle-daemon-jvm.properties</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties">…\gradle\gradle-daemon-jvm.properties [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:0"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#43">2</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:1"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#262">4</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:2"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#475">6</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:3"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#690">8</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:4"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#901">10</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="778868609"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;AARCH&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(778868609)" id="778868609">
+<div id="d778868609" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradle-daemon-jvm.properties</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties">…\gradle\gradle-daemon-jvm.properties [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:0"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#43">2</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:1"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#262">4</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:2"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#475">6</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:3"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#690">8</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#descr:4"><code>AARCH</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradle/gradle-daemon-jvm.properties#901">10</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+<li><label for="553419815">file&nbsp;<b>gradlew.bat</b>&nbsp;<span class="grayout">&nbsp;&nbsp;6&nbsp;typos&nbsp;</span></label><input type="checkbox" onclick="navigate(553419815)" id="553419815">
+<div id="d553419815" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradlew.bat</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat">…\gradlew.bat [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:0"><code>SPDX</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#646">16</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:1"><code>setlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#993">27</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:2"><code>ERRORLEVEL</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#1540">46</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:3"><code>Dorg</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:4"><code>appname</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:5"><code>endlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2802">92</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="333585291"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;SPDX&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(333585291)" id="333585291">
+<div id="d333585291" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradlew.bat</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat">…\gradlew.bat [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:0"><code>SPDX</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#646">16</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:1"><code>setlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#993">27</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:2"><code>ERRORLEVEL</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#1540">46</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:3"><code>Dorg</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:4"><code>appname</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:5"><code>endlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2802">92</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="294336087"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;setlocal&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(294336087)" id="294336087">
+<div id="d294336087" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradlew.bat</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat">…\gradlew.bat [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:0"><code>SPDX</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#646">16</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:1"><code>setlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#993">27</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:2"><code>ERRORLEVEL</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#1540">46</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:3"><code>Dorg</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:4"><code>appname</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:5"><code>endlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2802">92</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="1312346667"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;ERRORLEVEL&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1312346667)" id="1312346667">
+<div id="d1312346667" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradlew.bat</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat">…\gradlew.bat [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:0"><code>SPDX</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#646">16</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:1"><code>setlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#993">27</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:2"><code>ERRORLEVEL</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#1540">46</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:3"><code>Dorg</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:4"><code>appname</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:5"><code>endlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2802">92</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="1286999444"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;Dorg&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1286999444)" id="1286999444">
+<div id="d1286999444" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradlew.bat</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat">…\gradlew.bat [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:0"><code>SPDX</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#646">16</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:1"><code>setlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#993">27</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:2"><code>ERRORLEVEL</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#1540">46</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:3"><code>Dorg</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:4"><code>appname</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:5"><code>endlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2802">92</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="2048859031"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;appname&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(2048859031)" id="2048859031">
+<div id="d2048859031" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradlew.bat</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat">…\gradlew.bat [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:0"><code>SPDX</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#646">16</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:1"><code>setlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#993">27</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:2"><code>ERRORLEVEL</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#1540">46</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:3"><code>Dorg</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:4"><code>appname</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:5"><code>endlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2802">92</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+<li><label for="103444876"><span style="margin:1px;">TYPO</span>&nbsp;Typo:&nbsp;In&nbsp;word&nbsp;&#39;endlocal&#39;&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(103444876)" id="103444876">
+<div id="d103444876" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>gradlew.bat</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat">…\gradlew.bat [AuraDripApp]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:0"><code>SPDX</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#646">16</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:1"><code>setlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#993">27</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:2"><code>ERRORLEVEL</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#1540">46</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:3"><code>Dorg</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:4"><code>appname</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2251">77</a>)
+<li>Typo: In word '<a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#descr:5"><code>endlocal</code></a>' (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/gradlew.bat#2802">92</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+<li><label for="1499820772"><b>XML</b>&nbsp;group&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(1499820772)" id="1499820772">
+<ol class="tree">
+<li><label for="321108139"><b>Unused&nbsp;schema&nbsp;declaration</b>&nbsp;inspection&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(321108139)" id="321108139">
+<ol class="tree">
+<li><label for="629002451">file&nbsp;<b>AndroidManifest.xml</b>&nbsp;<span class="grayout">&nbsp;&nbsp;1&nbsp;warning&nbsp;</span></label><input type="checkbox" checked onclick="navigate(629002451)" id="629002451">
+<div id="d629002451" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>AndroidManifest.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml">…\app\src\main\AndroidManifest.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Namespace declaration is never used (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml#112">3</a>)
+</ul>
+</div></div>
+<ol class="tree">
+<li><label for="1673708402"><span style="margin:1px;background:#f2f794">WARNING</span>&nbsp;Namespace&nbsp;declaration&nbsp;is&nbsp;never&nbsp;used&nbsp;<span class="grayout"></span></label><input type="checkbox" onclick="navigate(1673708402)" id="1673708402">
+<div id="d1673708402" style="display:none">
+<p class="problem-description-group">Location</p><div class="location"><b>AndroidManifest.xml</b><br>in file&nbsp;<a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml">…\app\src\main\AndroidManifest.xml [AuraDripApp.app.main]</a></div>
+<p class="problem-description-group">Problem synopsis</p>
+<div class="problem-description">
+<ul>
+<li>Namespace declaration is never used (at line <a href="file://F:/AuraDrip/Frontend/AuraDripApp/app/src/main/AndroidManifest.xml#112">3</a>)
+</ul>
+</div></div>
+<ol class="tree">
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>
+</div>
+<div id="description">
+  <h4>Problem description</h4>
+  <div id="preview">Select a problem element in tree</div>
+</div>
+</body>
+</html>
