@@ -6,4 +6,18 @@
     <string name="language">Language</string>
     <string name="english">English</string>
     <string name="ukrainian">Ukrainian</string>
+
+    <string name="error_message">Error: %1$s</string>
+    <string name="try_again">Try again</string>
+    <string name="moisture">Moisture</string>
+    <string name="temperature">Temperature</string>
+    <string name="age">Age</string>
+    <string name="moisture_value">%1$d%%</string>
+    <string name="temperature_value">%1$.1f°C</string>
+    <string name="updated_time">Updated: %1$s</string>
+
+    <plurals name="plant_age">
+        <item quantity="one">%1$d day</item>
+        <item quantity="other">%1$d days</item>
+    </plurals>
 </resources>

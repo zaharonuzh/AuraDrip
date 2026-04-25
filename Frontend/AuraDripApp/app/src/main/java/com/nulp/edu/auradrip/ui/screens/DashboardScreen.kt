@@ -62,10 +62,13 @@ fun DashboardScreen() {
                 is PlantUiState.Error -> {
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text(text = "Помилка: ${state.message}", color = MaterialTheme.colorScheme.error)
+                            Text(
+                                text = stringResource(R.string.error_message, state.message),
+                                color = MaterialTheme.colorScheme.error
+                            )
                             Spacer(modifier = Modifier.height(16.dp))
                             Button(onClick = { plantViewModel.refresh() }) {
-                                Text("Спробувати знову")
+                                Text(stringResource(R.string.try_again))
                             }
                         }
                     }
@@ -77,6 +80,8 @@ fun DashboardScreen() {
 
 @Composable
 fun PlantStatusContent(plant: PlantStatus) {
+    val resources = LocalContext.current.resources
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -85,20 +90,20 @@ fun PlantStatusContent(plant: PlantStatus) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         StatusCard(
-            title = "Вологість",
-            value = "${plant.currentMoisture}%"
+            title = stringResource(R.string.moisture),
+            value = stringResource(R.string.moisture_value, plant.currentMoisture.toInt())
         )
         StatusCard(
-            title = "Температура",
-            value = "${plant.currentTemp}°C"
+            title = stringResource(R.string.temperature),
+            value = stringResource(R.string.temperature_value, plant.currentTemp)
         )
         StatusCard(
-            title = "Вік",
-            value = "${plant.ageDays} днів"
+            title = stringResource(R.string.age),
+            value = resources.getQuantityString(R.plurals.plant_age, plant.ageDays, plant.ageDays)
         )
         
         Text(
-            text = "Оновлено: ${plant.lastUpdate.toTimeAgo()}",
+            text = stringResource(R.string.updated_time, plant.lastUpdate.toTimeAgo()),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.align(Alignment.End)
