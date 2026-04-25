@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AuraDripApp</string>
+    <string name="dashboard">Головна</string>
+    <string name="analytics">Аналітика</string>
+    <string name="settings">Налаштування</string>
+    <string name="language">Мова</string>
+    <string name="english">Англійська</string>
+    <string name="ukrainian">Українська</string>
+</resources>
