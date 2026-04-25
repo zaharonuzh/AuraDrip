@@ -22,4 +22,27 @@
         <item quantity="many">%1$d днів</item>
         <item quantity="other">%1$d днів</item>
     </plurals>
+
+    <string name="time_ago_waiting">Очікування даних від ESP32...</string>
+    <string name="time_ago_just_now">Щойно</string>
+    <string name="time_ago_unknown">Невідомий час</string>
+
+    <plurals name="time_ago_minutes">
+        <item quantity="one">%1$d хвилину тому</item>
+        <item quantity="few">%1$d хвилини тому</item>
+        <item quantity="many">%1$d хвилин тому</item>
+        <item quantity="other">%1$d хвилин тому</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">%1$d годину тому</item>
+        <item quantity="few">%1$d години тому</item>
+        <item quantity="many">%1$d годин тому</item>
+        <item quantity="other">%1$d годин тому</item>
+    </plurals>
+    <plurals name="time_ago_days">
+        <item quantity="one">%1$d день тому</item>
+        <item quantity="few">%1$d дні тому</item>
+        <item quantity="many">%1$d днів тому</item>
+        <item quantity="other">%1$d днів тому</item>
+    </plurals>
 </resources>

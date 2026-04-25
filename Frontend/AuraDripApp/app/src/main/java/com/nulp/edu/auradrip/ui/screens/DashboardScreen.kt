@@ -80,7 +80,8 @@ fun DashboardScreen() {
 
 @Composable
 fun PlantStatusContent(plant: PlantStatus) {
-    val resources = LocalContext.current.resources
+    val context = LocalContext.current
+    val resources = context.resources
 
     Column(
         modifier = Modifier
@@ -103,7 +104,7 @@ fun PlantStatusContent(plant: PlantStatus) {
         )
         
         Text(
-            text = stringResource(R.string.updated_time, plant.lastUpdate.toTimeAgo()),
+            text = stringResource(R.string.updated_time, plant.lastUpdate.toTimeAgo(context)),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.align(Alignment.End)
