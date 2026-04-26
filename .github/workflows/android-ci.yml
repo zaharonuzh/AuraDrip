@@ -40,4 +40,8 @@ jobs:
         run: ./gradlew help
         working-directory: Frontend/AuraDripApp
 
+      - name: Run linter
+        run: ./gradlew lintDebug
+        working-directory: Frontend/AuraDripApp
+
       
