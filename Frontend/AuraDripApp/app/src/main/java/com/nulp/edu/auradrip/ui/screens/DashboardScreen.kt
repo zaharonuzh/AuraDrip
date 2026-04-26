@@ -1,9 +1,11 @@
 package com.nulp.edu.auradrip.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -18,8 +20,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.nulp.edu.auradrip.AuraDripApplication
 import com.nulp.edu.auradrip.R
+import com.nulp.edu.auradrip.domain.model.PlantConfig
 import com.nulp.edu.auradrip.domain.model.PlantStatus
 import com.nulp.edu.auradrip.ui.viewmodel.PlantUiState
 import com.nulp.edu.auradrip.ui.viewmodel.PlantViewModel
@@ -28,7 +32,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(navController: NavController? = null) {
     val context = LocalContext.current
     val application = context.applicationContext as AuraDripApplication
     val plantViewModel: PlantViewModel = viewModel(
@@ -36,6 +40,7 @@ fun DashboardScreen() {
     )
 
     val uiState by plantViewModel.uiState.collectAsState()
+    val plantConfig by plantViewModel.plantConfig.collectAsState()
     val isRefreshing by plantViewModel.isRefreshing.collectAsState()
     val isWatering by plantViewModel.isWatering.collectAsState()
     
@@ -74,8 +79,12 @@ fun DashboardScreen() {
                 is PlantUiState.Success -> {
                     PlantStatusContent(
                         plant = state.data,
+                        config = plantConfig,
                         isWatering = isWatering,
-                        onWaterClick = { plantViewModel.forceWaterNow() }
+                        onWaterClick = { plantViewModel.forceWaterNow() },
+                        onEditConfigClick = { plantId ->
+                            navController?.navigate("plant_config/$plantId")
+                        }
                     )
                 }
                 is PlantUiState.Error -> {
@@ -100,8 +109,10 @@ fun DashboardScreen() {
 @Composable
 fun PlantStatusContent(
     plant: PlantStatus,
+    config: PlantConfig?,
     isWatering: Boolean,
-    onWaterClick: () -> Unit
+    onWaterClick: () -> Unit,
+    onEditConfigClick: (Int) -> Unit
 ) {
     val context = LocalContext.current
     val resources = context.resources
@@ -113,6 +124,28 @@ fun PlantStatusContent(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        if (config != null) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onEditConfigClick(plant.plantId) }
+                    .padding(vertical = 8.dp)
+            ) {
+                Text(
+                    text = config.plantName,
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f)
+                )
+                Icon(
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = stringResource(R.string.plant_settings),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+            }
+        }
+
         StatusCard(
             title = stringResource(R.string.moisture),
             value = stringResource(R.string.moisture_value, plant.currentMoisture.toInt())

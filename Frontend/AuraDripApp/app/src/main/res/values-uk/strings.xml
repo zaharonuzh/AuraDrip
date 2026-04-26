@@ -50,4 +50,12 @@
 
     <string name="water_now">Полити зараз</string>
     <string name="command_sent">Команду надіслано</string>
+
+    <string name="plant_name">Назва рослини</string>
+    <string name="plant_settings">Налаштування рослини</string>
+    <string name="smart_mode">Розумний</string>
+    <string name="manual_mode">Ручний</string>
+    <string name="fixed_threshold_mode">Фікс. поріг</string>
+    <string name="save_button">Зберегти</string>
+    <string name="save_success">Налаштування успішно збережено</string>
 </resources>

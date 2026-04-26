@@ -10,13 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.nulp.edu.auradrip.LocalLanguage
 import com.nulp.edu.auradrip.R
 import androidx.compose.ui.res.stringResource
 import androidx.core.content.edit
 
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(navController: NavController? = null) {
     val context = LocalContext.current
     val langState = LocalLanguage.current
     val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
@@ -34,6 +35,15 @@ fun SettingsScreen() {
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
         )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Button(
+            onClick = { navController?.navigate("plant_config/1") },
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp)
+        ) {
+            Text(stringResource(R.string.plant_settings))
+        }
 
         Spacer(modifier = Modifier.height(32.dp))
 

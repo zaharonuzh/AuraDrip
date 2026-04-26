@@ -42,4 +42,12 @@
 
     <string name="water_now">Water Now</string>
     <string name="command_sent">Command sent</string>
+
+    <string name="plant_name">Plant Name</string>
+    <string name="plant_settings">Plant Settings</string>
+    <string name="smart_mode">Smart</string>
+    <string name="manual_mode">Manual</string>
+    <string name="fixed_threshold_mode">Fixed Threshold</string>
+    <string name="save_button">Save</string>
+    <string name="save_success">Settings saved successfully</string>
 </resources>

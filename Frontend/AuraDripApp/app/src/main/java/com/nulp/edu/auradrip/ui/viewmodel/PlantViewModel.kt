@@ -3,6 +3,7 @@ package com.nulp.edu.auradrip.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.nulp.edu.auradrip.domain.model.PlantConfig
 import com.nulp.edu.auradrip.domain.model.PlantStatus
 import com.nulp.edu.auradrip.domain.repository.PlantRepository
 import kotlinx.coroutines.channels.Channel
@@ -22,6 +23,9 @@ class PlantViewModel(
 
     private val _uiState = MutableStateFlow<PlantUiState>(PlantUiState.Loading)
     val uiState: StateFlow<PlantUiState> = _uiState.asStateFlow()
+
+    private val _plantConfig = MutableStateFlow<PlantConfig?>(null)
+    val plantConfig: StateFlow<PlantConfig?> = _plantConfig.asStateFlow()
 
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
@@ -56,6 +60,11 @@ class PlantViewModel(
             }
 
             val result = repository.fetchAndSavePlantStatus(plantId)
+            val configResult = repository.getPlantConfig(plantId)
+
+            if (configResult.isSuccess) {
+                _plantConfig.value = configResult.getOrNull()
+            }
             
             if (result.isFailure && _uiState.value !is PlantUiState.Success) {
                 _uiState.value = PlantUiState.Error(result.exceptionOrNull()?.message ?: "Unknown error")
