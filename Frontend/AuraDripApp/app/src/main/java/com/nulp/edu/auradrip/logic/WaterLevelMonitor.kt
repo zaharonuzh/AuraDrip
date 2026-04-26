@@ -6,7 +6,7 @@ class WaterLevelMonitor(private val notificationService: NotificationService) {
     fun checkLevel(currentLevel: Int) {
         // Якщо рівень води менше 10%, надсилаємо критичне сповіщення
         if (currentLevel < 10) {
-//             notificationService.sendCriticalAlert()
+             notificationService.sendCriticalAlert()
         }
     }
 }

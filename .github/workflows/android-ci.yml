@@ -48,4 +48,14 @@ jobs:
         run: ./gradlew testDebugUnitTest
         working-directory: Frontend/AuraDripApp
 
+      - name: Build debug APK
+        run: ./gradlew assembleDebug
+        working-directory: Frontend/AuraDripApp
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AuraDripApp-Debug
+          path: Frontend/AuraDripApp/app/build/outputs/apk/debug/app-debug.apk
+
       
