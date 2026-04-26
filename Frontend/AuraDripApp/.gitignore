@@ -21,4 +21,5 @@ gradle-daemon-jvm.properties
 .externalNativeBuild
 .cxx
 
-
+# Звіти про перевірку коду
+lint_reports/
