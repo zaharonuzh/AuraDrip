@@ -1,0 +1,16 @@
+name: AuraDrip App CI/CD
+
+# Тригери для запуску пайплайну
+on:
+  push:
+    branches:
+      - lab4-android
+    # Пайплайн запуститься лише при змінах у папці додатка
+    paths:
+      - 'Frontend/AuraDripApp/**'
+
+  pull_request:
+    branches:
+      - lab4-android
+    paths:
+      - 'Frontend/AuraDripApp/**'
