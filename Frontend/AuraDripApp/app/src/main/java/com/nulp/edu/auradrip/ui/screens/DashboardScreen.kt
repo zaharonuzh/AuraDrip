@@ -146,22 +146,37 @@ fun PlantStatusContent(
             }
         }
 
-        StatusCard(
-            title = stringResource(R.string.moisture),
-            value = stringResource(R.string.moisture_value, plant.currentMoisture.toInt())
-        )
-        StatusCard(
-            title = stringResource(R.string.temperature),
-            value = stringResource(R.string.temperature_value, plant.currentTemp)
-        )
-        StatusCard(
-            title = stringResource(R.string.air_humidity),
-            value = stringResource(R.string.air_humidity_value, plant.currentAirHum)
-        )
-        StatusCard(
-            title = stringResource(R.string.age),
-            value = resources.getQuantityString(R.plurals.plant_age, plant.ageDays, plant.ageDays)
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            StatusCard(
+                title = stringResource(R.string.moisture),
+                value = stringResource(R.string.moisture_value, plant.currentMoisture.toInt()),
+                modifier = Modifier.weight(1f)
+            )
+            StatusCard(
+                title = stringResource(R.string.temperature),
+                value = stringResource(R.string.temperature_value, plant.currentTemp),
+                modifier = Modifier.weight(1f)
+            )
+        }
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            StatusCard(
+                title = stringResource(R.string.air_humidity),
+                value = stringResource(R.string.air_humidity_value, plant.currentAirHum),
+                modifier = Modifier.weight(1f)
+            )
+            StatusCard(
+                title = stringResource(R.string.age),
+                value = resources.getQuantityString(R.plurals.plant_age, plant.ageDays, plant.ageDays),
+                modifier = Modifier.weight(1f)
+            )
+        }
         
         Spacer(modifier = Modifier.height(8.dp))
         
@@ -199,9 +214,9 @@ fun PlantStatusContent(
 }
 
 @Composable
-fun StatusCard(title: String, value: String) {
+fun StatusCard(title: String, value: String, modifier: Modifier = Modifier) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(

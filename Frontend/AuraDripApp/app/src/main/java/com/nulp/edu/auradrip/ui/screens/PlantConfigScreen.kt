@@ -119,13 +119,20 @@ fun PlantConfigScreen(
                 }
 
                 if (uiState.controlMode == 3) {
-                    OutlinedTextField(
-                        value = uiState.manualThreshold,
-                        onValueChange = { viewModel.updateThreshold(it) },
-                        label = { Text("Threshold (0-100%)") },
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        modifier = Modifier.fillMaxWidth()
-                    )
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Text(
+                            text = stringResource(R.string.current_threshold, uiState.manualThreshold.ifEmpty { "0" }),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                        OutlinedTextField(
+                            value = uiState.manualThreshold,
+                            onValueChange = { viewModel.updateThreshold(it) },
+                            label = { Text(stringResource(R.string.moisture_threshold_label)) },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.weight(1f))

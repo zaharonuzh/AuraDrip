@@ -58,4 +58,6 @@
     <string name="fixed_threshold_mode">Фікс. поріг</string>
     <string name="save_button">Зберегти</string>
     <string name="save_success">Налаштування успішно збережено</string>
+    <string name="moisture_threshold_label">Поріг вологості (0&#8211;100%)</string>
+    <string name="current_threshold">Поточний поріг: %1$s%%</string>
 </resources>

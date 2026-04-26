@@ -50,4 +50,6 @@
     <string name="fixed_threshold_mode">Fixed Threshold</string>
     <string name="save_button">Save</string>
     <string name="save_success">Settings saved successfully</string>
+    <string name="moisture_threshold_label">Moisture Threshold (0&#8211;100%)</string>
+    <string name="current_threshold">Current threshold: %1$s%%</string>
 </resources>
