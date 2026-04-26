@@ -32,12 +32,12 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # - name: Grant execute permission for gradlew
-      #   run: chmod +x gradlew
-      #   working-directory: Frontend/AuraDripApp
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        working-directory: Frontend/AuraDripApp
 
-      # - name: Install dependencies
-      #   run: ./gradlew help
-      #   working-directory: Frontend/AuraDripApp
+      - name: Install dependencies
+        run: ./gradlew help
+        working-directory: Frontend/AuraDripApp
 
       
