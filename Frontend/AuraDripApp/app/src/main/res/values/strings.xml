@@ -11,9 +11,11 @@
     <string name="try_again">Try again</string>
     <string name="moisture">Moisture</string>
     <string name="temperature">Temperature</string>
+    <string name="air_humidity">Air humidity</string>
     <string name="age">Age</string>
     <string name="moisture_value">%1$d%%</string>
     <string name="temperature_value">%1$.1f°C</string>
+    <string name="air_humidity_value">%1$.1f%%</string>
     <string name="updated_time">Updated: %1$s</string>
 
     <plurals name="plant_age">

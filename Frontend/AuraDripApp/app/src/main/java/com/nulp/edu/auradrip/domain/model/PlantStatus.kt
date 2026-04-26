@@ -5,5 +5,6 @@ data class PlantStatus(
     val ageDays: Int,
     val currentMoisture: Double,
     val currentTemp: Double,
+    val currentAirHum: Double,
     val lastUpdate: String?
 )

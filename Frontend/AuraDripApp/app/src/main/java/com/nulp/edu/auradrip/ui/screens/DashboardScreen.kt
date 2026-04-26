@@ -99,10 +99,13 @@ fun PlantStatusContent(plant: PlantStatus) {
             value = stringResource(R.string.temperature_value, plant.currentTemp)
         )
         StatusCard(
+            title = stringResource(R.string.air_humidity),
+            value = stringResource(R.string.air_humidity_value, plant.currentAirHum)
+        )
+        StatusCard(
             title = stringResource(R.string.age),
             value = resources.getQuantityString(R.plurals.plant_age, plant.ageDays, plant.ageDays)
         )
-        
         Text(
             text = stringResource(R.string.updated_time, plant.lastUpdate.toTimeAgo(context)),
             style = MaterialTheme.typography.bodySmall,

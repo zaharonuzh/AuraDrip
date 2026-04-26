@@ -21,6 +21,7 @@ class PlantRepositoryImpl(
                     ageDays = it.ageDays,
                     currentMoisture = it.currentMoisture,
                     currentTemp = it.currentTemp,
+                    currentAirHum = it.currentAirHum,
                     lastUpdate = it.lastUpdate
                 )
             }
@@ -35,6 +36,7 @@ class PlantRepositoryImpl(
                 ageDays = response.ageDays,
                 currentMoisture = response.currentMoisture,
                 currentTemp = response.currentTemp,
+                currentAirHum = response.currentAirHum,
                 lastUpdate = response.lastUpdate
             )
             plantDao.insertPlantStatus(entity)

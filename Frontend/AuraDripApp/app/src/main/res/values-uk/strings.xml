@@ -11,9 +11,11 @@
     <string name="try_again">Спробувати знову</string>
     <string name="moisture">Вологість</string>
     <string name="temperature">Температура</string>
+    <string name="air_humidity">Вологість повітря</string>
     <string name="age">Вік</string>
     <string name="moisture_value">%1$d%%</string>
     <string name="temperature_value">%1$.1f°C</string>
+    <string name="air_humidity_value">%1$.1f%%</string>
     <string name="updated_time">Оновлено: %1$s</string>
 
     <plurals name="plant_age">

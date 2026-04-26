@@ -11,6 +11,8 @@ data class PlantStatusResponse(
     val currentMoisture: Double,
     @SerialName("currentTemp")
     val currentTemp: Double,
+    @SerialName("currentAirHum")
+    val currentAirHum: Double,
     @SerialName("lastUpdate")
     val lastUpdate: String? = null
 )
