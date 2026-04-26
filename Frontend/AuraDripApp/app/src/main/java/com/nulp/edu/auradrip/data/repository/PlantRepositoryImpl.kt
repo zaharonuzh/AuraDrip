@@ -66,7 +66,7 @@ class PlantRepositoryImpl(
                     plantId = response.plantId,
                     plantName = response.plantName,
                     controlMode = response.controlMode,
-                    manualThreshold = response.manualThreshold
+                    minMoistureThreshold = response.minMoistureThreshold
                 )
             )
         } catch (e: Exception) {

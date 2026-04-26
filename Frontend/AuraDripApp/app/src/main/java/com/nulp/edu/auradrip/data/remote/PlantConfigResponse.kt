@@ -7,5 +7,5 @@ data class PlantConfigResponse(
     val plantId: Int,
     val plantName: String,
     val controlMode: Int,
-    val manualThreshold: Int? = null
+    val minMoistureThreshold: Int? = null
 )

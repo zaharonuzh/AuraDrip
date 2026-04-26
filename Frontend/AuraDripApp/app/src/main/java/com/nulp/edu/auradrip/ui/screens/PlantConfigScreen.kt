@@ -38,6 +38,7 @@ fun PlantConfigScreen(
     val successMessage = stringResource(R.string.save_success)
 
     LaunchedEffect(Unit) {
+        viewModel.loadPlantConfig()
         viewModel.uiEvent.collectLatest { event ->
             if (event == "save_success") {
                 snackbarHostState.showSnackbar(successMessage)
@@ -121,7 +122,10 @@ fun PlantConfigScreen(
                 if (uiState.controlMode == 3) {
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         Text(
-                            text = stringResource(R.string.current_threshold, uiState.manualThreshold.ifEmpty { "0" }),
+                            text = stringResource(
+                                R.string.current_threshold, 
+                                uiState.minMoistureThreshold?.toString() ?: "0"
+                            ),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.primary
                         )

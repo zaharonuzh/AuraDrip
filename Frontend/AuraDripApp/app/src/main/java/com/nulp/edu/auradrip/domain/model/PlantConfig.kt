@@ -4,5 +4,5 @@ data class PlantConfig(
     val plantId: Int,
     val plantName: String,
     val controlMode: Int,
-    val manualThreshold: Int?
+    val minMoistureThreshold: Int?
 )

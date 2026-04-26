@@ -13,6 +13,7 @@ data class PlantConfigUiState(
     val isLoading: Boolean = false,
     val plantName: String = "",
     val controlMode: Int = 1,
+    val minMoistureThreshold: Int? = null,
     val manualThreshold: String = ""
 )
 
@@ -28,10 +29,10 @@ class PlantConfigViewModel(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
-        loadConfig()
+        loadPlantConfig()
     }
 
-    private fun loadConfig() {
+    fun loadPlantConfig() {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }
             val result = repository.getPlantConfig(plantId)
@@ -42,7 +43,8 @@ class PlantConfigViewModel(
                         isLoading = false,
                         plantName = config.plantName,
                         controlMode = config.controlMode,
-                        manualThreshold = config.manualThreshold?.toString() ?: ""
+                        minMoistureThreshold = config.minMoistureThreshold,
+                        manualThreshold = config.minMoistureThreshold?.toString() ?: ""
                     )
                 }
             } else {
@@ -74,10 +76,11 @@ class PlantConfigViewModel(
             val result = repository.updatePlantConfig(plantId, dto)
             if (result.isSuccess) {
                 _uiEvent.send("save_success")
+                loadPlantConfig() // reload after save
             } else {
                 _uiEvent.send(result.exceptionOrNull()?.message ?: "error")
+                _uiState.update { it.copy(isLoading = false) }
             }
-            _uiState.update { it.copy(isLoading = false) }
         }
     }
 
