@@ -47,4 +47,7 @@
         <item quantity="many">%1$d днів тому</item>
         <item quantity="other">%1$d днів тому</item>
     </plurals>
+
+    <string name="water_now">Полити зараз</string>
+    <string name="command_sent">Команду надіслано</string>
 </resources>

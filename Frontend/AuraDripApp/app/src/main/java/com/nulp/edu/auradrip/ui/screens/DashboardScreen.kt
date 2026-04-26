@@ -3,10 +3,14 @@ package com.nulp.edu.auradrip.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -20,6 +24,7 @@ import com.nulp.edu.auradrip.domain.model.PlantStatus
 import com.nulp.edu.auradrip.ui.viewmodel.PlantUiState
 import com.nulp.edu.auradrip.ui.viewmodel.PlantViewModel
 import com.nulp.edu.auradrip.utils.toTimeAgo
+import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,17 +37,27 @@ fun DashboardScreen() {
 
     val uiState by plantViewModel.uiState.collectAsState()
     val isRefreshing by plantViewModel.isRefreshing.collectAsState()
+    val isWatering by plantViewModel.isWatering.collectAsState()
+    
+    val snackbarHostState = remember { SnackbarHostState() }
 
-    // We'll use a standard Scaffold to host the content
+    val commandSentMessage = stringResource(R.string.command_sent)
+
+    LaunchedEffect(Unit) {
+        plantViewModel.uiEvent.collectLatest { event ->
+            val message = if (event == "command_sent") commandSentMessage else event
+            snackbarHostState.showSnackbar(message = message)
+        }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.dashboard), fontWeight = FontWeight.Bold) }
             )
-        }
+        },
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
     ) { innerPadding ->
-        // Since PullToRefreshBox is in Material3 1.3.0+, let's see if it works. 
-        // If not, we'll fall back to something else. We'll try the new PullToRefreshBox.
         androidx.compose.material3.pulltorefresh.PullToRefreshBox(
             isRefreshing = isRefreshing,
             onRefresh = { plantViewModel.refresh() },
@@ -57,7 +72,11 @@ fun DashboardScreen() {
                     }
                 }
                 is PlantUiState.Success -> {
-                    PlantStatusContent(plant = state.data)
+                    PlantStatusContent(
+                        plant = state.data,
+                        isWatering = isWatering,
+                        onWaterClick = { plantViewModel.forceWaterNow() }
+                    )
                 }
                 is PlantUiState.Error -> {
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -79,7 +98,11 @@ fun DashboardScreen() {
 }
 
 @Composable
-fun PlantStatusContent(plant: PlantStatus) {
+fun PlantStatusContent(
+    plant: PlantStatus,
+    isWatering: Boolean,
+    onWaterClick: () -> Unit
+) {
     val context = LocalContext.current
     val resources = context.resources
 
@@ -106,6 +129,33 @@ fun PlantStatusContent(plant: PlantStatus) {
             title = stringResource(R.string.age),
             value = resources.getQuantityString(R.plurals.plant_age, plant.ageDays, plant.ageDays)
         )
+        
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        Button(
+            onClick = onWaterClick,
+            enabled = !isWatering,
+            modifier = Modifier.fillMaxWidth().height(56.dp)
+        ) {
+            if (isWatering) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(24.dp),
+                    color = MaterialTheme.colorScheme.onPrimary,
+                    strokeWidth = 2.dp
+                )
+            } else {
+                Icon(
+                    imageVector = Icons.Default.WaterDrop,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+                Text(
+                    text = stringResource(R.string.water_now),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+        }
+
         Text(
             text = stringResource(R.string.updated_time, plant.lastUpdate.toTimeAgo(context)),
             style = MaterialTheme.typography.bodySmall,

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.nulp.edu.auradrip.domain.model.PlantStatus
 import com.nulp.edu.auradrip.domain.repository.PlantRepository
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -24,6 +25,12 @@ class PlantViewModel(
 
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
+
+    private val _isWatering = MutableStateFlow(false)
+    val isWatering: StateFlow<Boolean> = _isWatering.asStateFlow()
+
+    private val _uiEvent = Channel<String>()
+    val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
         observePlantStatus()
@@ -55,6 +62,21 @@ class PlantViewModel(
             }
             
             _isRefreshing.value = false
+        }
+    }
+
+    fun forceWaterNow() {
+        viewModelScope.launch {
+            _isWatering.value = true
+            val result = repository.forceWater(plantId)
+            
+            if (result.isSuccess) {
+                _uiEvent.send("command_sent")
+            } else {
+                _uiEvent.send(result.exceptionOrNull()?.message ?: "error")
+            }
+            
+            _isWatering.value = false
         }
     }
 
