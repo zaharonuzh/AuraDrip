@@ -15,6 +15,7 @@ import com.nulp.edu.auradrip.LocalLanguage
 import com.nulp.edu.auradrip.R
 import androidx.compose.ui.res.stringResource
 import androidx.core.content.edit
+import com.posthog.PostHog
 
 @Composable
 fun SettingsScreen(navController: NavController? = null) {
@@ -59,6 +60,13 @@ fun SettingsScreen(navController: NavController? = null) {
                 .padding(8.dp)
                 .clickable {
                     if (langState.value != "en") {
+                        PostHog.capture(
+                            event = "language_changed",
+                            properties = mapOf(
+                                "old_lang" to langState.value,
+                                "new_lang" to "en"
+                            )
+                        )
                         prefs.edit { putString("language", "en") }
                         langState.value = "en"
                     }
@@ -77,6 +85,13 @@ fun SettingsScreen(navController: NavController? = null) {
                 .padding(8.dp)
                 .clickable {
                     if (langState.value != "uk") {
+                        PostHog.capture(
+                            event = "language_changed",
+                            properties = mapOf(
+                                "old_lang" to langState.value,
+                                "new_lang" to "uk"
+                            )
+                        )
                         prefs.edit { putString("language", "uk") }
                         langState.value = "uk"
                     }

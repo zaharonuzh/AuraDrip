@@ -48,6 +48,8 @@ fun DashboardScreen(navController: NavController? = null) {
 
     val commandSentMessage = stringResource(R.string.command_sent)
 
+    val showCard by plantViewModel.showWaterConsumption
+
     LaunchedEffect(Unit) {
         plantViewModel.uiEvent.collectLatest { event ->
             val message = if (event == "command_sent") commandSentMessage else event
@@ -84,7 +86,8 @@ fun DashboardScreen(navController: NavController? = null) {
                         onWaterClick = { plantViewModel.forceWaterNow() },
                         onEditConfigClick = { plantId ->
                             navController?.navigate("plant_config/$plantId")
-                        }
+                        },
+                        showCard = showCard
                     )
                 }
                 is PlantUiState.Error -> {
@@ -112,7 +115,8 @@ fun PlantStatusContent(
     config: PlantConfig?,
     isWatering: Boolean,
     onWaterClick: () -> Unit,
-    onEditConfigClick: (Int) -> Unit
+    onEditConfigClick: (Int) -> Unit,
+    showCard: Boolean
 ) {
     val context = LocalContext.current
     val resources = context.resources
@@ -177,7 +181,14 @@ fun PlantStatusContent(
                 modifier = Modifier.weight(1f)
             )
         }
-        
+
+        if (showCard) {
+            StatusCard(
+                title = "Water consumed",
+                value = "100 ml",
+                modifier = Modifier.weight(1f)
+            )
+        }
         Spacer(modifier = Modifier.height(8.dp))
         
         Button(

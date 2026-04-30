@@ -1,11 +1,14 @@
 package com.nulp.edu.auradrip.ui.viewmodel
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.State
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.nulp.edu.auradrip.domain.model.PlantConfig
 import com.nulp.edu.auradrip.domain.model.PlantStatus
 import com.nulp.edu.auradrip.domain.repository.PlantRepository
+import com.posthog.PostHog
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -36,9 +39,17 @@ class PlantViewModel(
     private val _uiEvent = Channel<String>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
+    private val _showWaterConsumption = mutableStateOf(false)
+    val showWaterConsumption: State<Boolean> = _showWaterConsumption
+
     init {
         observePlantStatus()
         refresh()
+        checkFeatureFlags()
+    }
+
+    private fun checkFeatureFlags() {
+        _showWaterConsumption.value = PostHog.isFeatureEnabled("show-water-stats")
     }
 
     private fun observePlantStatus() {
@@ -54,6 +65,12 @@ class PlantViewModel(
     fun refresh() {
         viewModelScope.launch {
             _isRefreshing.value = true
+
+            PostHog.capture(
+                event = "dashboard_refresh_started",
+                properties = mapOf("plant_id" to plantId)
+            )
+
             val current = _uiState.value
             if (current !is PlantUiState.Success) {
                 _uiState.value = PlantUiState.Loading
@@ -63,10 +80,22 @@ class PlantViewModel(
             val configResult = repository.getPlantConfig(plantId)
 
             if (configResult.isSuccess) {
+                PostHog.capture(
+                    event = "dashboard_refresh_success",
+                    properties = mapOf("plant_id" to plantId)
+                )
                 _plantConfig.value = configResult.getOrNull()
             }
             
             if (result.isFailure && _uiState.value !is PlantUiState.Success) {
+                PostHog.capture(
+                    event = "dashboard_refresh_failed",
+                    properties = mapOf(
+                        "plant_id" to plantId,
+                        "status_error" to (result.exceptionOrNull()?.message ?: "none"),
+                        "config_error" to (configResult.exceptionOrNull()?.message ?: "none")
+                    )
+                )
                 _uiState.value = PlantUiState.Error(result.exceptionOrNull()?.message ?: "Unknown error")
             }
             
@@ -77,11 +106,31 @@ class PlantViewModel(
     fun forceWaterNow() {
         viewModelScope.launch {
             _isWatering.value = true
+
+            PostHog.capture(
+                event = "watering_attempted",
+                properties = mapOf("plant_id" to plantId)
+            )
+
             val result = repository.forceWater(plantId)
             
             if (result.isSuccess) {
+                PostHog.capture(
+                    event = "watering_success",
+                    properties = mapOf(
+                        "plant_id" to plantId,
+                        "status" to "command_sent"
+                    )
+                )
                 _uiEvent.send("command_sent")
             } else {
+                PostHog.capture(
+                    event = "watering_failed",
+                    properties = mapOf(
+                        "plant_id" to plantId,
+                        "error" to (result.exceptionOrNull()?.message ?: "unknown")
+                    )
+                )
                 _uiEvent.send(result.exceptionOrNull()?.message ?: "error")
             }
             

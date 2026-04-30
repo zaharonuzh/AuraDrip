@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -38,6 +40,19 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+
+    val localProperties = Properties()
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localProperties.load(localPropertiesFile.inputStream())
+    }
+
+    defaultConfig {
+        // Створення строкових констант для коду
+        buildConfigField("String", "POSTHOG_API_KEY", "${localProperties.getProperty("POSTHOG_API_KEY")}")
+        buildConfigField("String", "POSTHOG_HOST", "${localProperties.getProperty("POSTHOG_HOST")}")
     }
 }
 
@@ -54,7 +69,10 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.material.icons.extended)
-    
+
+    // Posthog
+    implementation(libs.posthog)
+
     // Room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
