@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -21,7 +22,6 @@ import com.patrykandpatrick.vico.compose.cartesian.axis.rememberBottom
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberStart
 import com.patrykandpatrick.vico.compose.cartesian.layer.rememberLineCartesianLayer
 import com.patrykandpatrick.vico.compose.cartesian.rememberVicoScrollState
-// Vico Core Cartesian Data
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModel
 import com.patrykandpatrick.vico.core.cartesian.data.LineCartesianLayerModel
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
@@ -46,7 +46,7 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel) {
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(24.dp) // Відступи між картками
         ) {
             // Вибір періоду (7, 14, 30 днів)
             PeriodSelector(
@@ -54,74 +54,78 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel) {
                 onDaysSelected = { viewModel.setPeriod(it) }
             )
 
-            // Стан завантаження або відображення графіка
+            // Стан завантаження або відображення трьох графіків
             if (uiState.isLoading && uiState.history == null) {
                 Box(Modifier.fillMaxWidth().height(250.dp), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator()
                 }
             } else {
                 uiState.history?.let { history ->
-                    VicoThreeChartCard(history, uiState.isCombinedMode)
+                    // 1. Графік вологості ґрунту
+                    AnalyticsChartCard(
+                        title = "Soil Moisture (%)",
+                        history = history,
+                        data = history.items.map { it.soilMoisture }
+                    )
+
+                    // 2. Графік температури повітря
+                    AnalyticsChartCard(
+                        title = "Air Temperature (°C)",
+                        history = history,
+                        data = history.items.map { it.airTemperature }
+                    )
+
+                    // 3. Графік вологості повітря
+                    AnalyticsChartCard(
+                        title = "Air Humidity (%)",
+                        history = history,
+                        data = history.items.map { it.airHumidity }
+                    )
                 } ?: Text(
                     text = "No data available",
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
-            }
-
-            // Налаштування (Комбінований режим)
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Checkbox(
-                    checked = uiState.isCombinedMode,
-                    onCheckedChange = { viewModel.toggleChartMode() }
-                )
-                Text(text = "Combined Chart (Moisture / Temp / Hum)")
             }
         }
     }
 }
 
 @Composable
-fun VicoThreeChartCard(history: PlantHistory, isCombined: Boolean) {
+fun AnalyticsChartCard(
+    title: String,
+    history: PlantHistory,
+    data: List<Float>
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            // 1. Побудова моделі даних
-            val model = remember(history, isCombined) {
-                CartesianChartModel(
-                    LineCartesianLayerModel.build {
-                        series(history.items.map { it.soilMoisture })
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
 
-                        if (isCombined) {
-                            series(history.items.map { it.airTemperature })
-                            series(history.items.map { it.airHumidity })
-                        }
-                    }
+            // Побудова моделі даних для конкретної серії
+            val model = remember(data) {
+                CartesianChartModel(
+                    LineCartesianLayerModel.build { series(data) }
                 )
             }
 
-            // 2. Форматування дати
             val dateFormatter = remember { DateTimeFormatter.ofPattern("dd.MM HH:mm") }
-
-            // Використовуємо x замість value, щоб уникнути конфліктів,
-            // та додаємо roundToInt() для точного визначення індексу
             val xValueFormatter = CartesianValueFormatter { _, value, _ ->
-                // Тепер 'value' — це Double, і ми можемо спокійно викликати toInt()
                 val index = value.toInt()
                 history.items.getOrNull(index)?.timestamp
                     ?.atZone(ZoneId.systemDefault())
                     ?.format(dateFormatter) ?: ""
             }
 
-            // 3. Відображення графіка з виправленими осями
             CartesianChartHost(
                 chart = rememberCartesianChart(
                     rememberLineCartesianLayer(),
-                    // Використовуємо методи, які відповідають твоїм робочим імпортам
                     startAxis = VerticalAxis.rememberStart(),
                     bottomAxis = HorizontalAxis.rememberBottom(
                         valueFormatter = xValueFormatter,
@@ -130,7 +134,7 @@ fun VicoThreeChartCard(history: PlantHistory, isCombined: Boolean) {
                 ),
                 model = model,
                 scrollState = rememberVicoScrollState(),
-                modifier = Modifier.height(300.dp)
+                modifier = Modifier.height(220.dp) // Трохи менша висота для кожної картки
             )
         }
     }
