@@ -144,6 +144,8 @@ fun AnalyticsChartCard(
 @Composable
 fun PeriodSelector(selectedDays: Int, onDaysSelected: (Int) -> Unit) {
     val periods = listOf(7, 14, 30)
+    val suffix = stringResource(R.string.days_suffix) // Отримуємо суфікс залежно від мови
+
     SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
         periods.forEachIndexed { index, days ->
             SegmentedButton(
@@ -151,7 +153,8 @@ fun PeriodSelector(selectedDays: Int, onDaysSelected: (Int) -> Unit) {
                 onClick = { onDaysSelected(days) },
                 shape = SegmentedButtonDefaults.itemShape(index = index, count = periods.size)
             ) {
-                Text("${days}d")
+                // Тепер буде показувати "7d" або "7д"
+                Text(text = "$days$suffix")
             }
         }
     }

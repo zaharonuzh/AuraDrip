@@ -22,6 +22,8 @@
     <string name="chart_air_temperature">Air Temperature</string>
     <string name="chart_air_humidity">Air Humidity</string>
 
+    <string name="days_suffix">d</string>
+
     <plurals name="plant_age">
         <item quantity="one">%1$d day</item>
         <item quantity="other">%1$d days</item>

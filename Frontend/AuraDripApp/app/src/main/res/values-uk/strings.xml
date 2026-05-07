@@ -18,6 +18,8 @@
     <string name="air_humidity_value">%1$.1f%%</string>
     <string name="updated_time">Оновлено: %1$s</string>
 
+    <string name="days_suffix">д</string>
+
     <string name="chart_soil_moisture">Вологість ґрунту</string>
     <string name="chart_air_temperature">Температура повітря</string>
     <string name="chart_air_humidity">Вологість повітря</string>
