@@ -16,6 +16,8 @@ retrofit = "2.11.0"
 kotlinxSerialization = "1.8.0"
 ksp = "2.0.21-1.0.28"
 vico = "2.4.4"
+kotlinxCoroutinesTest = "1.7.3"
+turbine = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,6 +55,9 @@ vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", ve
 # Vico Core (логіка та інтерполятори)
 vico-core = { group = "com.patrykandpatrick.vico", name = "core", version.ref = "vico" }
 vico-compose-base = { group = "com.patrykandpatrick.vico", name = "compose", version.ref = "vico" }
+
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
