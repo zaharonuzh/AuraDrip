@@ -8,8 +8,15 @@ import com.nulp.edu.auradrip.data.remote.UpdateConfigDto
 import com.nulp.edu.auradrip.domain.model.PlantConfig
 import com.nulp.edu.auradrip.domain.model.PlantStatus
 import com.nulp.edu.auradrip.domain.repository.PlantRepository
+import com.nulp.edu.auradrip.domain.model.PlantHistory
+import com.nulp.edu.auradrip.domain.model.TelemetryPoint
+import com.nulp.edu.auradrip.data.local.PlantHistoryEntity
+import com.nulp.edu.auradrip.data.remote.PlantHistoryItemDto
+import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import java.time.Instant
 
 class PlantRepositoryImpl(
     private val plantDao: PlantDao,
@@ -82,4 +89,47 @@ class PlantRepositoryImpl(
             Result.failure(e)
         }
     }
+
+    override fun getPlantHistory(plantId: Int, days: Int): Flow<PlantHistory?> = flow {
+        // Спочатку намагаємося оновити дані в базі з мережі
+        try {
+            val response = plantApi.getPlantHistory(plantId, days)
+
+            // Використовуємо транзакційність: видаляємо старе, записуємо нове
+            plantDao.clearHistoryForPlant(plantId)
+            plantDao.insertHistory(response.history.map { it.toEntity(plantId) })
+        } catch (e: Exception) {
+            // Якщо помилка (немає інету), ми просто ігноруємо її.
+            // Flow нижче все одно видасть те, що було в базі раніше.
+            android.util.Log.e("AuraDripRepo", "Error fetching history: ${e.message}")
+        }
+
+        // Транслюємо дані з бази в UI
+        emitAll(plantDao.getHistoryForPlant(plantId).map { entities ->
+            if (entities.isEmpty()) return@map null
+
+            PlantHistory(
+                periodDays = days,
+                averageMoisture = entities.map { it.soilMoisture }.average(),
+                averageTemperature = entities.map { it.airTemperature }.average(),
+                averageAirHumidity = entities.map { it.airHumidity }.average(),
+                items = entities.map { it.toDomain() }
+            )
+        })
+    }
+
+    private fun PlantHistoryItemDto.toEntity(plantId: Int) = PlantHistoryEntity(
+        plantId = plantId,
+        timestamp = this.timestamp.toEpochMilli(),
+        soilMoisture = this.soilMoisture.toFloat(),
+        airTemperature = this.airTemperature.toFloat(),
+        airHumidity = this.airHumidity.toFloat()
+    )
+
+    private fun PlantHistoryEntity.toDomain() = TelemetryPoint(
+        timestamp = Instant.ofEpochMilli(this.timestamp),
+        soilMoisture = this.soilMoisture,
+        airTemperature = this.airTemperature,
+        airHumidity = this.airHumidity
+    )
 }

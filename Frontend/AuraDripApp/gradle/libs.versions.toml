@@ -15,6 +15,7 @@ room = "2.6.1"
 retrofit = "2.11.0"
 kotlinxSerialization = "1.8.0"
 ksp = "2.0.21-1.0.28"
+vico = "2.4.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,6 +47,12 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+# Vico
+vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version.ref = "vico" }
+# Vico Core (логіка та інтерполятори)
+vico-core = { group = "com.patrykandpatrick.vico", name = "core", version.ref = "vico" }
+vico-compose-base = { group = "com.patrykandpatrick.vico", name = "compose", version.ref = "vico" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

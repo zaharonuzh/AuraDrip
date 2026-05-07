@@ -5,6 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface PlantApi {
     @GET("/api/app/plants/{plantId}/status")
@@ -21,4 +22,10 @@ interface PlantApi {
         @Path("plantId") plantId: Int,
         @Body config: UpdateConfigDto
     ): ActionResponse
+
+    @GET("/api/app/plants/{plantId}/history")
+    suspend fun getPlantHistory(
+        @Path("plantId") plantId: Int,
+        @Query("days") days: Int
+    ): PlantHistoryResponse
 }

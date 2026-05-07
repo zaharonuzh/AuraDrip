@@ -12,6 +12,10 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.nulp.edu.auradrip.ui.navigation.BottomNavigationBar
 import com.nulp.edu.auradrip.ui.navigation.BottomNavItem
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.nulp.edu.auradrip.AuraDripApplication
+import com.nulp.edu.auradrip.ui.viewmodel.AnalyticsViewModel
 
 @Composable
 fun MainScreen() {
@@ -29,7 +33,17 @@ fun MainScreen() {
                     DashboardScreen(navController = navController)
                 }
                 composable(BottomNavItem.Analytics.route) {
-                    AnalyticsScreen()
+                    // Отримуємо посилання на репозиторій через Application context
+                    val context = LocalContext.current
+                    val application = context.applicationContext as AuraDripApplication
+
+                    // Створюємо ViewModel за допомогою твоєї фабрики
+                    val analyticsViewModel: AnalyticsViewModel = viewModel(
+                        factory = AnalyticsViewModel.provideFactory(application.plantRepository)
+                    )
+
+                    // Передаємо створену ViewModel в екран
+                    AnalyticsScreen(viewModel = analyticsViewModel)
                 }
                 composable(BottomNavItem.Settings.route) {
                     SettingsScreen(navController = navController)

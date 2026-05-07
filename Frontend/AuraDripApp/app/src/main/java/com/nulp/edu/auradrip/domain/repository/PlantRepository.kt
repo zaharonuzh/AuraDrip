@@ -3,6 +3,7 @@ package com.nulp.edu.auradrip.domain.repository
 import com.nulp.edu.auradrip.data.remote.ActionResponse
 import com.nulp.edu.auradrip.data.remote.UpdateConfigDto
 import com.nulp.edu.auradrip.domain.model.PlantConfig
+import com.nulp.edu.auradrip.domain.model.PlantHistory
 import com.nulp.edu.auradrip.domain.model.PlantStatus
 import kotlinx.coroutines.flow.Flow
 
@@ -13,4 +14,6 @@ interface PlantRepository {
     
     suspend fun getPlantConfig(plantId: Int): Result<PlantConfig>
     suspend fun updatePlantConfig(plantId: Int, configDto: UpdateConfigDto): Result<ActionResponse>
+
+    fun getPlantHistory(plantId: Int, days: Int): Flow<PlantHistory?>
 }

@@ -74,4 +74,9 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Vico
+    implementation(libs.vico.compose.base)
+    implementation(libs.vico.compose.m3)
+    implementation(libs.vico.core)
 }
