@@ -28,13 +28,13 @@ import com.patrykandpatrick.vico.core.cartesian.data.CartesianValueFormatter
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AnalyticsScreen(viewModel: AnalyticsViewModel) {
     val uiState by viewModel.uiState.collectAsState()
 
     Scaffold(
         topBar = {
+            @OptIn(ExperimentalMaterial3Api::class)
             TopAppBar(
                 title = { Text(stringResource(R.string.analytics), fontWeight = FontWeight.Bold) }
             )
@@ -46,38 +46,39 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel) {
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp) // Відступи між картками
+            verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            // Вибір періоду (7, 14, 30 днів)
             PeriodSelector(
                 selectedDays = uiState.selectedDays,
                 onDaysSelected = { viewModel.setPeriod(it) }
             )
 
-            // Стан завантаження або відображення трьох графіків
             if (uiState.isLoading && uiState.history == null) {
                 Box(Modifier.fillMaxWidth().height(250.dp), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator()
                 }
             } else {
                 uiState.history?.let { history ->
-                    // 1. Графік вологості ґрунту
+                    // Графік вологості ґрунту
                     AnalyticsChartCard(
-                        title = "Soil Moisture (%)",
+                        title = stringResource(R.string.chart_soil_moisture),
+                        unit = "%",
                         history = history,
                         data = history.items.map { it.soilMoisture }
                     )
 
-                    // 2. Графік температури повітря
+                    // Графік температури повітря
                     AnalyticsChartCard(
-                        title = "Air Temperature (°C)",
+                        title = stringResource(R.string.chart_air_temperature),
+                        unit = "°C",
                         history = history,
                         data = history.items.map { it.airTemperature }
                     )
 
-                    // 3. Графік вологості повітря
+                    // Графік вологості повітря
                     AnalyticsChartCard(
-                        title = "Air Humidity (%)",
+                        title = stringResource(R.string.chart_air_humidity),
+                        unit = "%",
                         history = history,
                         data = history.items.map { it.airHumidity }
                     )
@@ -93,6 +94,7 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel) {
 @Composable
 fun AnalyticsChartCard(
     title: String,
+    unit: String, // Новий параметр для одиниць виміру
     history: PlantHistory,
     data: List<Float>
 ) {
@@ -102,13 +104,12 @@ fun AnalyticsChartCard(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = title,
+                text = "$title ($unit)", // Відображення назви разом з одиницею
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
-            // Побудова моделі даних для конкретної серії
             val model = remember(data) {
                 CartesianChartModel(
                     LineCartesianLayerModel.build { series(data) }
@@ -134,7 +135,7 @@ fun AnalyticsChartCard(
                 ),
                 model = model,
                 scrollState = rememberVicoScrollState(),
-                modifier = Modifier.height(220.dp) // Трохи менша висота для кожної картки
+                modifier = Modifier.height(220.dp)
             )
         }
     }
